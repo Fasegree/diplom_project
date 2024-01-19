@@ -1,0 +1,21 @@
+.btn {
+    padding: 16px 56px;
+    background-color: var(--green, #393);
+    color: var(--txt-white, #fff);
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 130%;
+    
+}
+
+.btn:hover {
+    
+    background: var(--black);
+
+}
+.btn:active {
+    background: var(--white);
+    color: var(--txt-black);
+}

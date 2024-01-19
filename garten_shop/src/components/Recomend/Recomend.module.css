@@ -1,0 +1,21 @@
+.content {
+    background-image: url(./media/recomend.jpg);
+    background-position: center;
+    background-size: cover;
+    padding-top: 80px;
+    padding-bottom: 210px;
+    background-repeat: no-repeat;
+    /* background-color: linear-gradient(0deg, rgba(0, 0, 0, 0.40) 0%, rgba(0, 0, 0, 0.40) 100%), url(<path-to-image>), lightgray 0px -230.586px / 100% 160.195% no-repeat; */
+ 
+}
+.content > div {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+h1 {
+    color: var(--txt-white);
+    font-size: 96px;
+    font-weight: 700;
+    line-height: 110%;
+}
