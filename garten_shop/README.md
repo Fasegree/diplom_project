@@ -9,6 +9,9 @@ npm moduls
 instal router dom
 npm i react-router-dom
 
+установка библиотеки валидации форм
+npm i react-hook-form
+
 //======================== icon
 Установите пакет в каталог проекта командой:
 
@@ -22,13 +25,19 @@ npm install --save @fortawesome/react-fontawesomeotation  from '@material-ui/ico
 
 npm i react-router-dom
 
-npm install react-redux
+npm i redux react-redux
 
-npm install redux
+
 
 asinchronschina
 npm i redux-thunk
 
+Библиотека для localstorage
+npm i redux-persist
+
+store/index.js => 
+
+index.js => 
 ======================================= 
 ============= Установка бекенд
 =======================================

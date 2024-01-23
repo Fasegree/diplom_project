@@ -6,7 +6,7 @@ export default function ProductsAllPage(){
         <div>
             ProductsAllPage
             <FilterPanel/>
-            {/* <ProductList/> */}
+            <ProductList/>
         </div>
     )
 }
