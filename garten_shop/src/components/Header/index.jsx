@@ -9,6 +9,8 @@ import { useEffect, useState } from 'react'
 import { productsReducer } from '../../store/productsReducer'
 import { useDispatch, useSelector } from 'react-redux'
 import { cartReducer } from '../../store/cartReducer'
+import Breadcrumb from '../BreadCrumbs'
+import Breadcrumbs from '../BreadCrumbs'
 
 export default function Header(){
     // проверка корзины и добавление countInCart useEffect(()=>{ fetch(cart)},[state.cart])
@@ -21,7 +23,9 @@ export default function Header(){
 
     
     return(
-        <div className={s.header}>
+        <div className='container'>
+
+        <div className={s.header }>
             <Link to={'/'}>
 
             <div className={s.logo}><img src={logo} alt='logo'/></div>
@@ -44,6 +48,8 @@ export default function Header(){
             </Link>
                 <BurgerMenu className={s.BurgerMenu}/>
             </div>
+        </div>
+        <Breadcrumbs/>
         </div>
     )
 }

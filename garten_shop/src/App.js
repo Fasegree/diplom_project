@@ -19,6 +19,7 @@ function App() {
         <Route path='/' element={<HomePage/>}/>
         <Route path='/categories' element={<CategoriesPage/>}/>
         <Route path='/products' element={<ProductsAllPage/>}/>
+      
         <Route path='/discount' element={<ProductsDiscountedPage/>}/> // products/all with filter
         <Route path='/categories/:category' element={<ProductsOfCategoryPage/>}/>
         <Route path='/categories/:category/:product_id' element={<ProductPage/>}/>

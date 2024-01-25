@@ -4,7 +4,7 @@ import { useSelector } from "react-redux"
 export default function CartPage() {
     const productsCart = useSelector(store => store.cart)
     return (
-        <div>
+        <div className="container">
             CartPage
             {productsCart.map(prod => {
                 return (

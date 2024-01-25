@@ -38,6 +38,10 @@ npm i redux-persist
 store/index.js => 
 
 index.js => 
+
+npm install --save react-breadcrumbs //error
+
+npm install --save react-breadcrumbs@1.6.x
 ======================================= 
 ============= Установка бекенд
 =======================================
@@ -71,3 +75,8 @@ button => modalWin { Name, tel, emaail sendOk }
 
 
 grid tamplateColumn
+
+
+24.01.2024 выравнивание по центру всего содержимого;
+исправление пути discount;
+добавление хлебных крошек

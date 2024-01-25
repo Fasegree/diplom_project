@@ -3,7 +3,7 @@ import ProductList from "../../components/Products/ProductList";
 
 export default function ProductsAllPage(){
     return(
-        <div>
+        <div className="container">
             ProductsAllPage
             <FilterPanel/>
             <ProductList/>

@@ -23,8 +23,8 @@ export default function CategoriesList(page='0'){
     return (
         <div className={`${s.categories} wrapper`} style={{gridTemplateColumns: `repeat(${countCountColumn},1fr)`}}>
             {categories.map(prod => {
-                return <Link to={`/categories/${prod.id}`}>
-                    <div style={{backgroundImage: `url('${ROOT_URL+prod.image}')`}} className={s.categoryImg} key={prod.id}>
+                return <Link key={prod.id} to={`/categories/${prod.id}`}>
+                    <div  style={{backgroundImage: `url('${ROOT_URL+prod.image}')`}} className={s.categoryImg} key={prod.id}>
                        
                     </div>
                     <div className={s.categoryTxt}>{prod.title}</div>

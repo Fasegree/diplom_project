@@ -5,6 +5,8 @@ import BtnCard from '../../ui/Btns/BtnCard'
 
 export default function NotFoundPage(){
     return(
+        <div className="container">
+
         <div className={s.container}>
             NotFoundPage
             <div className={s.img404}>
@@ -18,6 +20,7 @@ export default function NotFoundPage(){
                 <p>Please go back to the homepage. </p>
                 <BtnCard action={''} btnText={'Go home'}/>
             </div>
+        </div>
         </div>
     )
 }

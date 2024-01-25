@@ -13,7 +13,7 @@ export default function ProductPage(){
     console.log(product);
 // не открывает по ссылке ?? надо предать id товара
     return(
-        <div>
+        <div className="container">
             ProductPage
             <p>{product[0]?.title}</p>
             <p>price: {product[0]?.price}</p>

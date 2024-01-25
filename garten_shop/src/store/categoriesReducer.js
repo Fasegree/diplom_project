@@ -7,7 +7,7 @@ export const categoriesReducer = ( state = defaultState, action ) => {
     switch (action.type) {
         case ASYNC_CATEGORIES_LIST:
             console.log(state);
-            return [...action.payload];
+            return action.payload;
             
     
         default:

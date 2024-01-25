@@ -31,7 +31,7 @@ export const productsReducer = (state = defaultState, action) => {
         case REMOVE_PRODUCT_BY_ID:
             return state.filter(el => el.id !== action.payload)
         case ASYNC_PRODUCTS_LIST:
-            console.log(action.payload);
+                console.log('ASYNC_PRODUCTS_LIST' + action.payload);
             return [ ...action.payload]
         case ASYNC_PRODUCT_BY_ID:
             return [...action.payload]

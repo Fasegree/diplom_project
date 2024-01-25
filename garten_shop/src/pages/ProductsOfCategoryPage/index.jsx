@@ -14,7 +14,7 @@ export default function ProductsOfCategoryPage(){
     },[])
     console.log(products);
     return(
-        <div>
+        <div className="container">
             ProductsOfCategoryPage
             {products.map(prod => 
                             <Link to={`/categories/${prod.categoryId}/${prod.id}`}>

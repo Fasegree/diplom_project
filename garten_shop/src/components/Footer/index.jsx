@@ -3,6 +3,8 @@ import instagrammIco from './media/ic-instagram.svg'
 import whatsappIco from './media/ic-whatsapp.svg'
 export default function Footer(){
     return(
+        <div className='container'>
+
         <div className='wrapper'>
             <h2>Contact</h2>
             <div className={s.content}>
@@ -39,6 +41,7 @@ export default function Footer(){
                     <a href="https://www.maps.ie/population/">Calculate population in area</a>
                 </iframe>
           
+        </div>
         </div>
     )
 }

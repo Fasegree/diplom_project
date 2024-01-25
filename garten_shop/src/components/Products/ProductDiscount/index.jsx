@@ -13,12 +13,13 @@ export default function ProductDiscount(){
         console.log(products);
     }, [])
     const discountProducts = products.filter(prod => prod.discont_price !== null)
+    // const discountProducts = products.filter(prod => prod.discont_price)
 
-    console.log(products);
+    console.log(discountProducts);
     return (
         <div>
             {discountProducts.map(prod => {
-                return <Link to={`/categories/${prod.categoryId}/`}><div key={prod.id}> {prod.discont_price} {prod.title}</div></Link>
+                return <Link to={`/categories/${prod.categoryId}/${prod.id}`}><div key={prod.id}> {prod.discont_price} {prod.title}</div></Link>
             })}
         </div>
     )

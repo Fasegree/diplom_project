@@ -5,12 +5,13 @@ import Title from "../../components/Title";
 
 export default function HomePage(){
     return(
-        <div>
+        <div className="container">
             <Recomend/>
             <Title titleText={'Category'} btnText={`All categories`} btnLink={'/categories'}/>
             <CategoriesList page='home'/>
             <DiscountOrderForm/>
             <Title titleText={'Sale'} btnText={`All sales`} btnLink={'/discount'}/>
         </div>
+      
     )
 }

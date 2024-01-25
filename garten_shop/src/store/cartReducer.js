@@ -1,11 +1,8 @@
-// вставить где 
-// import { useEffect } from "react"
 
-// useEffect(() => {
-//     localStorage.setItem('cart', JSON.stringify(cart))
-// })
-
+console.log('cart ' +JSON.parse(localStorage.getItem('cart')));
 const defaultState = JSON.parse(localStorage.getItem('cart')) ?? []
+console.log('cart ' +JSON.parse(localStorage.getItem('cart')));
+
 
 const ADD_TO_CART = 'ADD_TO_CART'
 const REMOVE_FROM_CART = 'REMOVE_FROM_CART'
