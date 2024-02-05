@@ -1,0 +1,83 @@
+use bnm
+db.createCollections([])
+
+
+db.orders.aggregate([
+    {$match: {}},          // mojno ne upominat`
+    {$group: {_id: "$cat", total: {$sum:}}}
+])
+
+db.orders.aggregate([
+    {$group: {_id: "$cat", total: {$sum:}}}
+])
+
+
+// Task 1
+// Посчитайте сумму всех зарплат в таблице
+
+db.employees.aggregate([
+    {$group: {
+        _id: 'data',
+        sum_salary: {$sum: '$salary'}
+    }},
+    {$project: {
+      _id: 0,
+      all_salary: '$_id',
+      sum_salary: 1
+    }}
+])
+
+// --------------------
+// Task 2
+// Посчитайте количество сотрудников приходящие на каждый департмент. 
+// В выобрке выведите count_empl и dep_id
+
+
+
+db.employees.aggregate([
+    {$group: {
+        _id: '$dep_id',
+        count_empl: {$sum: 1}
+    }},
+    {$project: {
+        _id: 0,
+        dep_id: '$_id',
+        count_empl: 1
+
+    }}
+])
+
+// --------------------
+// Task 3
+// Рассчитайте количество всех профессий из 50 департмаента 
+// Необходимо вывести профессию и количество сотрудников
+
+db.employees.aggregate([
+    {$match: {dep_id: 50}},
+    {$group: {
+        _id: '$job_id',
+        count: {$sum: 1}
+    }}
+])
+
+/=================================================
+HOME WORK
+
+// -----------------------
+// Посчитайте среднее значение зарплаты сотрудников, работающие в в 
+департмаментах: 50,60,90
+// В проекции выведите avg_salary
+
+$avgSalary employees in dep 50,60,100,90
+
+project {
+    $avgSalary
+}
+
+db.employees.aggregate([
+    {$match: {dep_id: {$in: [50,60,100,90] }}},
+    {$group: {
+        _id: '$dep_id',
+        avg_salary: {$avg: '$salary'}
+    }}
+])

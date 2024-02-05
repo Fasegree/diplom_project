@@ -1,0 +1,23 @@
+.orderDetiles{
+background-color: rgb(241, 243, 244);
+    display: flex;
+    border-radius: 12px;
+    /* width: 548px; */
+    display: flex;
+    flex-direction: column;
+    max-width: 700px;
+    padding: 32px;
+}
+.orderDetiles h3{
+    font-weight: 700;
+    
+}
+.orderDetiles p {
+    font-size: 40px;
+    font-weight: 500;
+}
+.totalPrice{
+    display: flex;
+    align-items: baseline;
+    gap: 32px;
+}

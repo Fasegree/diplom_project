@@ -2,6 +2,11 @@
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-gap: 32px;
+    
+}
+.contact {
+    margin-top: 60px;
+    margin-bottom: 40px;
 }
 .content > div {
     display: flex;

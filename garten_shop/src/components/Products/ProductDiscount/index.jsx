@@ -1,26 +1,53 @@
 import { useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
-import { fetchProductsList } from "../../../asyncActions/products"
+import { fetchProductsAll, fetchProductsList } from "../../../asyncActions/products"
 import { Link } from "react-router-dom"
+import ProductItem from "../ProductItem"
+import FilterPanel from "../../FilterPanel"
 
-export default function ProductDiscount(){
+export default function ProductDiscount({page}){
 
-    const products = useSelector(store => store.products)
+    const { category, products }  = useSelector(store => store.products)
     const dispatch = useDispatch()
     
     useEffect(() => {
-        dispatch(fetchProductsList('/products/all'))
-        console.log(products);
+        dispatch(fetchProductsAll())
     }, [])
-    const discountProducts = products.filter(prod => prod.discont_price !== null)
+    let discountProducts = products?.filter(prod => prod.discont_price !== null);
+    console.log(discountProducts);
+    // костыль 
+    if (page === 'home' && discountProducts ) {
+       discountProducts = discountProducts
+                                        .map(product => ({
+                                            ...product,
+                                            discountPercentage: ((product.price - product.discont_price) / product.price) * 100
+                                        }))
+                                        .sort((a, b) => b.discountPercentage - a.discountPercentage)
+                                        .slice(0, 5);
+    } else{
+
+         discountProducts = discountProducts
+    }
     // const discountProducts = products.filter(prod => prod.discont_price)
 
     console.log(discountProducts);
     return (
         <div>
-            {discountProducts.map(prod => {
-                return <Link to={`/categories/${prod.categoryId}/${prod.id}`}><div key={prod.id}> {prod.discont_price} {prod.title}</div></Link>
+            <FilterPanel type={'sale'}/>
+            <div className="cardsList">
+
+            {discountProducts?.map(prod => {
+                return (
+                    <div key={prod.id}>
+
+                        <Link  to={`/categories/${prod.categoryId}/${prod.id}`}>
+                    
+                        <ProductItem prod={prod} />
+                    </Link>
+                    </div>
+                    )
             })}
+            </div>
         </div>
     )
 }

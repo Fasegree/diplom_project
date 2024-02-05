@@ -1,4 +1,4 @@
-.form {
+/* .form {
     background: linear-gradient(261deg, #0B710B 32.63%, #393 98.96%);
     border-radius: var(--radius-big, 12px);
     text-align: center;
@@ -14,20 +14,20 @@
     gap: 32px;
     padding-left: 32px;
     padding-right: 32px;
-}
-.content > img {
-}
-.inputs {
+} */
+/* .content > img {
+} */
+/* .inputs {
     padding-bottom: 32px;
-}
-.content > div {
+} */
+/* .content > div {
     display: flex;
     flex-direction: column;
     justify-content: end;
     gap: 10px;
     width: 100%;
-}
-.content > div > input {
+} */
+/* .content > div > input {
 padding: 16px 32px;
 border-radius: 6px;
 border:  1px solid var(--white);
@@ -39,4 +39,52 @@ background-color: transparent;
 }
 .content > div > input::placeholder {
     color: var(--txt-white);
+} */
+/*================== */
+.dicountOrderForm{
+    display: flex;
+    flex-direction: column;
+    background: linear-gradient(261deg, #0B710B 32.63%, #393 98.96%);
+    border-radius: var(--radius-big, 12px);
+    text-align: center;
+    margin-top: 80px; 
 }
+.dicountOrderForm > div {
+    display: flex;
+    gap: 32px;
+
+ 
+}
+.dicountOrderForm h2{
+    color: var(--txt-white);
+    padding-top: 32px;
+    padding-bottom: 24px;
+}
+.handsImg {
+ 
+    width: 100%;
+    margin-right: 32px;
+    max-width: 100%;
+    margin: 0 auto;
+    position: relative;
+    display: block;
+
+}
+.handsImg img {
+    bottom: 0;
+    width: 748px;
+    height: 360px;
+    object-fit: cover;
+    margin-left: 32px;
+    margin-top: 23px;
+   position: absolute;
+
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+.form{
+    margin-bottom: 32px;
+}
+
+

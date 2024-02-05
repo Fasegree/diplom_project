@@ -1,29 +1,38 @@
 import { useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
-import { fetchProductsList } from "../../asyncActions/products"
-import { Link, useParams } from "react-router-dom"
+import {  fetchCategoryProduct, fetchProductsListByCategory } from "../../asyncActions/products"
+import {  Link, useParams } from "react-router-dom"
+import ProductItem from "../../components/Products/ProductItem"
 
 export default function ProductsOfCategoryPage(){
-    const  {category} =useParams()
-    const products = useSelector(store => store.products)
+    const  {categoryID} = useParams()
+    const  { category, products } = useSelector(store => store.products)
     const dispatch = useDispatch()
+    // let data = [];
+
     useEffect(() => {
-        const postfix = `/categories/${category}`
-        console.log(category);
-        dispatch(fetchProductsList(postfix))
+
+        dispatch(fetchProductsListByCategory(categoryID))
+    
+            window.scrollTo(0, 0);
+       
+  
     },[])
-    console.log(products);
+    // console.log( products)
     return(
         <div className="container">
             ProductsOfCategoryPage
-            {products.map(prod => 
-                            <Link to={`/categories/${prod.categoryId}/${prod.id}`}>
-                                <div>
-                                        <p>{prod.title}</p>
-                                        <p>{prod.price}</p>
-                                 </div>
-                            </Link>
-                                )}
+            <h2>{category}</h2>
+         <div className="cardsList">
+
+            {products?.map(el => 
+            <Link to={`/categories/${el.categoryId}/${el.id}`}>
+                <ProductItem prod={el}/>
+            </Link>
+             
+            )}
+         </div>
+
         </div>
     )
 }

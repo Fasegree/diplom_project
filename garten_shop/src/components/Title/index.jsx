@@ -4,7 +4,7 @@ import s from './Title.module.css'
 export default function Title({titleText, btnText, btnLink}){
     return (
         <div className={`wrapper ${s.title}`}>
-            <h3> {titleText} </h3>
+            <h2> {titleText} </h2>
            
             <Link to={btnLink}>
 

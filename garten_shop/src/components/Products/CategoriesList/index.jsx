@@ -1,35 +1,37 @@
-import { useEffect } from "react"
-import { useDispatch, useSelector } from "react-redux"
-import { ROOT_URL, fetchCatigoriesList,  } from "../../../asyncActions/products"
-import { Link } from "react-router-dom"
-import s from "./CategoriesList.module.css"
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { Link, useParams } from 'react-router-dom';
+import { fetchCatigoriesList } from '../../../asyncActions/products';
+import { ROOT_URL } from '../../../App';
+import s from './CategoriesList.module.css'
 
+export default function CategoriesList({ page }) {
+    let categories = useSelector(store => store.categories);
+  categories = page === 'home' ? categories.categories.slice(0,-1) : categories.categories
+  const dispatch = useDispatch();
+  // !!!=======
+  const { id } = useParams();
+useEffect(() => {
+      dispatch(fetchCatigoriesList()); 
+  }, [id, page]);
 
-export default function CategoriesList(page='0'){
+  // console.log(page);
 
-    // const categoriesAll = '/categories/all'
-    const categories1 = useSelector(store => store.categories)
-    console.log( page.page);
-    const categories = (page.page !=='home') ? categories1 : categories1.slice(0,4)
-    const countCountColumn = (page.page !=='home') ? categories1.length : 4
-    const dispatch = useDispatch()
-    
-    useEffect(() => {
-        dispatch(fetchCatigoriesList()) 
-        console.log();
-    }, [])
-    
-    console.log(categories);
-    return (
-        <div className={`${s.categories} wrapper`} style={{gridTemplateColumns: `repeat(${countCountColumn},1fr)`}}>
-            {categories.map(prod => {
-                return <Link key={prod.id} to={`/categories/${prod.id}`}>
-                    <div  style={{backgroundImage: `url('${ROOT_URL+prod.image}')`}} className={s.categoryImg} key={prod.id}>
+//===========
+  return (
+   
+    <div className={`${s.categories} wrapper`}  style={{gridTemplateColumns: `repeat(${categories.length},1fr)`}}>
+            {categories.map(cat => {
+                return <Link key={cat.id} to={`/categories/${cat.id}`}>
+                    <div  style={{backgroundImage: `url('${ROOT_URL+cat.image}')`}} className={s.categoryImg} key={cat.id}>
                        
                     </div>
-                    <div className={s.categoryTxt}>{prod.title}</div>
+                    <div className={s.categoryTxt}>{cat.title}</div>
                     </Link>
             })}
         </div>
-    )
+
+
+  );
 }
+

@@ -1,31 +1,44 @@
 import { useEffect } from "react";
 import { fetchProductById } from "../../../asyncActions/products";
-import BtnCard from "../../../ui/Btns/BtnCard";
 import { useDispatch, useSelector } from "react-redux";
-import { addToCartAction } from "../../../store/cartReducer";
+import { addToCartAction, removeFromCart } from "../../../store/cartReducer";
 import s from './ProductItem.module.css'
+import ButtonCard from "../../../ui/Btns/BtnCard";
+import { ROOT_URL } from "../../../App";
 
-export default function ProductItem({id, title, price, discont_price, description, image, categoryId}){
+export default function ProductItem({ prod }) {
     const product = useSelector(store => store.products)
     const dispatch = useDispatch()
-    // useEffect(() => {
-    //     dispatch(fetchProductById(id))
-        
-    // }, [])
-    // console.log(product);
-     return (
+
+    const { id, title, price, discont_price, description, image, categoryId } = prod
+    console.log(product);
+
+
+    return (
         <div className={s.productCard}>
-            <div className={s.image}>
-                <img src={`http://localhost:3333/${image}`}  alt={title}/>
+            {discont_price && <div className={s.discount}>{`-${Math.round(100 - discont_price * 100 / price)}%`}</div>}
+            <div className={s.imageBtn}>
+                <div className={s.productsImg} style={{ backgroundImage: `url(${ROOT_URL}/${image})` }} ></div>
+
+                <div className={s.btnAdd}>
+                    <ButtonCard
+                        title={'Add to 1'}
+                        action={() => dispatch(addToCartAction(prod))}
+                        widthBtn='284'
+                    />
+
+                </div>
+
                
-            {/* <BtnCard btnText={'Add to cart'}  action={() =>  dispatch(addToCartAction)}/> */}
             </div>
             <div className={s.cardInfo}>
-                <p>{title}</p>
-                <p>${price}</p>
-                {discont_price && <div className="discount">{`-${Math.round(100-discont_price*100/price)}%`}</div>}
-                <p> price: {price}</p>
-                {discont_price && <p> discont_price: ${discont_price}</p>}
+                <p className={s.cardTitle}>{title}</p>
+                <div className={s.cardPrice}>
+                    {discont_price ? <p className={s.currentPrice}> ${discont_price}</p> : <p className={s.currentPrice}> ${price}</p>}
+                    {discont_price && <p className={s.oldPrice}>${price}</p>}
+
+                </div>
+
             </div>
         </div>
     )

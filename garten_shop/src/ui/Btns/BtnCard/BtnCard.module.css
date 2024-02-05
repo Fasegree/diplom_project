@@ -1,12 +1,18 @@
 .btn {
-    padding: 16px 56px;
-    background-color: var(--green, #393);
-    color: var(--txt-white, #fff);
+    /* width: 218px;
+    height: 58px; */
+    padding: 10px 20px;
+    /* margin-top: 40px; */
+    font-family: "Montserrat", sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    text-decoration: none;
+    background-color: rgba(51, 153, 51, 1);
+    color: white;
+    border: none;
     border-radius: 6px;
     cursor: pointer;
-    font-size: 20px;
-    font-weight: 600;
-    line-height: 130%;
+    z-index: 5;
     
 }
 

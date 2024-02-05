@@ -3,6 +3,8 @@ https://docs.google.com/document/d/1jmj9c_yWLTTRT2ptBpyvNWPLCZpkj2UEESTxskw-i_w/
 
 https://www.figma.com/file/SDNWLzCWkh9ZXdCpWEaByv/project-frontend?type=design&node-id=1-122&mode=design&t=Vn77NnwO9ipkQDrG-0
 
+ROOT_URL = https://project-fe-vxeu.onrender.com/products/all
+
 ===========================
 npm moduls
 ===========================
@@ -27,6 +29,7 @@ npm i react-router-dom
 
 npm i redux react-redux
 
+npm i @reduxjs/toolkit
 
 
 asinchronschina
@@ -80,3 +83,10 @@ grid tamplateColumn
 24.01.2024 выравнивание по центру всего содержимого;
 исправление пути discount;
 добавление хлебных крошек
+
+1.02.2024 add products card disine 
+- dobav render cartochek, filter(logica), otmena vsplutia 
+
+
+5.02.2024 
+1 page for all products, sale, categories =>  CategoriesPage({type})

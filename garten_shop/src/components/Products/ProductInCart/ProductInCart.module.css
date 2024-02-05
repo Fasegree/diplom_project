@@ -1,0 +1,95 @@
+
+.cardsWrapper{
+display: flex;
+flex-direction: column;
+gap: 16px;
+}
+.cardWrapper{
+    display: flex;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    position: relative;
+    overflow: hidden;
+    gap: 32px;
+}
+
+.img{
+    height: 180px;
+    width: 200px;
+    border-right: 1px solid #ddd;
+    background-position: center;
+}
+.close{ 
+    position: absolute;
+    right: 32px;
+    top: 32px;
+    cursor: pointer;
+
+}
+.cardInfo{ 
+    display: flex;
+    flex-direction: column;
+    /* gap: 25px; */
+    padding: 32px;
+}
+.title {
+    font-size: 20px;
+
+}
+.cardInfo button{
+    width: 58px;
+    aspect-ratio: 1;
+    border: 1px solid #ddd;
+    background-color: #fff;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+
+.controllAll{
+    display: flex;
+    gap: 32px;
+}
+.control button,
+.control p {
+  outline: 1px solid #ddd; 
+  margin: 0; 
+}
+
+.control > p {
+    width: 96px;
+    height: 58px;
+    display: flex;
+    justify-content: center;
+    align-items:  center;
+}
+
+.control {
+    margin-top: 32px;
+    display: flex;
+}
+
+.cardPriceContainer{
+    display: flex;
+    align-items: end;
+}
+
+.cardPrice{
+   
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+    
+    }
+    .currentPrice{
+        color: #282828;
+        font-size: 40px;
+        font-weight: 600;
+        
+    }
+    .oldPrice{
+        font-size: 20px;
+        text-decoration: line-through;
+        color: rgba(139, 139, 139, 1);
+    
+    }

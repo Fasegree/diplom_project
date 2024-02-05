@@ -5,11 +5,7 @@ import { Link } from 'react-router-dom'
 import logo from './media/logo.svg'
 import cart from './media/cart.svg'
 import BurgerMenu from './Burger'
-import { useEffect, useState } from 'react'
-import { productsReducer } from '../../store/productsReducer'
 import { useDispatch, useSelector } from 'react-redux'
-import { cartReducer } from '../../store/cartReducer'
-import Breadcrumb from '../BreadCrumbs'
 import Breadcrumbs from '../BreadCrumbs'
 
 export default function Header(){
@@ -33,8 +29,10 @@ export default function Header(){
             <div className={s.navMenu}>
                 <ul className={s.nav}>
                     <Link to={'/'}><li>Main Page</li></Link>
-                    <Link to={'/categories'}><li>Categories</li></Link>
-                    <Link to={'/products'}><li>All products</li></Link>
+                   
+                    <Link to={'/category/all'} type='all'><li>Categories</li></Link>
+                    <Link to={'/products/all'} type='all'><li>All products</li></Link>
+                    
                     <Link to={'/discount'}> <li>All sales</li></Link>                   
                 </ul>
             </div>

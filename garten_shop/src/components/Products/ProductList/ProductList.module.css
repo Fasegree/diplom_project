@@ -1,4 +1,11 @@
 .cardsList {
+    position: relative;
     display: flex;
+    margin-top: 40px;
     flex-wrap: wrap;
+    gap: 32px;
 }
+.productsWrapper{
+    display: flex;
+}
+
