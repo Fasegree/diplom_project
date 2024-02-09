@@ -5,15 +5,24 @@ import { addToCartAction, removeFromCart } from "../../../store/cartReducer";
 import s from './ProductItem.module.css'
 import ButtonCard from "../../../ui/Btns/BtnCard";
 import { ROOT_URL } from "../../../App";
+import { isAddToCartAction } from "../../../store/isAddReducer";
 
 export default function ProductItem({ prod }) {
-    const product = useSelector(store => store.products)
     const dispatch = useDispatch()
 
     const { id, title, price, discont_price, description, image, categoryId } = prod
-    console.log(product);
 
 
+
+    const addToCart = () => {
+      // После 2 секунд изменяем состояние isVisible
+      // App.js
+      dispatch(addToCartAction(prod));
+      dispatch(isAddToCartAction(true))
+      setTimeout(() => {
+        dispatch(isAddToCartAction(false))
+      }, 2000);
+    };
     return (
         <div className={s.productCard}>
             {discont_price && <div className={s.discount}>{`-${Math.round(100 - discont_price * 100 / price)}%`}</div>}
@@ -22,8 +31,8 @@ export default function ProductItem({ prod }) {
 
                 <div className={s.btnAdd}>
                     <ButtonCard
-                        title={'Add to 1'}
-                        action={() => dispatch(addToCartAction(prod))}
+                        title={'Add to cart'}
+                        action={addToCart }
                         widthBtn='284'
                     />
 

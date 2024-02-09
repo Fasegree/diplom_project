@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Link, useParams } from 'react-router-dom';
 import { fetchProductsAll } from '../../../asyncActions/products';
 import ProductItem from '../ProductItem';
-import { addToCartAction, removeFromCart } from '../../../store/cartReducer';
+import { addToCartAction, removeFromCart, removeFromCartPositionAction } from '../../../store/cartReducer';
 
 
 
@@ -30,9 +30,10 @@ export default function ProductInCart({productsCart}) {
         console.log(prod);
         return (
           <div key={prod.id} className={s.cardWrapper} >
-            <div className={s.close}>X</div>
+            <button className={s.close} onClick={() => dispatch(removeFromCartPositionAction(prod))}>X</button>
+           
             <div className={s.img} style={{ backgroundImage: `url(${ROOT_URL}/${prod.image})` }}></div>
-            {/* // style={{backgroundImage: `url(${ROOT_URL}/${image})`}} */}
+
             <div className={s.cardInfo}>
            
                 <div className={s.title}>{prod.title}</div>
@@ -49,6 +50,7 @@ export default function ProductInCart({productsCart}) {
                   <div className={s.cardPrice}>
                     {prod.discont_price ? <p className={s.currentPrice}> ${prod.discont_price}</p> : <p className={s.currentPrice}> ${prod.price}</p>}
                     {prod.discont_price && <p className={s.oldPrice}>${prod.price}</p>}
+                    {prod.discont_price && <div className={s.discount}>{`-${Math.round(100 - prod.discont_price * 100 / prod.price)}%`}</div>}
                   </div>
                 </div>
 

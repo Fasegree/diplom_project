@@ -90,3 +90,24 @@ grid tamplateColumn
 
 5.02.2024 
 1 page for all products, sale, categories =>  CategoriesPage({type})
+
+7.02 filter
+get normal all products
+    return {category: '', 
+            products: arr, 
+            count: 1,
+            from: 0,
+            to: Infinity,
+            isSale: false,
+            sortBy: 'default'
+        }
+
+9.02 filter is working 
+    {category: '', 
+        products: arr.map(el => ({...el, isShowFrom: true, isShowTo: true, isShowSale: true })),  
+        count: 1,
+        from: 0,
+        to: Infinity,
+        isSale: false,
+        sortBy: 'default'
+        }

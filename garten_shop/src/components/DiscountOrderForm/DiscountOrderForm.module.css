@@ -50,8 +50,10 @@ background-color: transparent;
     margin-top: 80px; 
 }
 .dicountOrderForm > div {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
     gap: 32px;
+    
 
  
 }

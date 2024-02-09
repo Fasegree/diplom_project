@@ -20,9 +20,16 @@ gap: 16px;
     background-position: center;
 }
 .close{ 
+    text-align: center;
     position: absolute;
-    right: 32px;
-    top: 32px;
+    right: 15px;
+    top: 15px;
+    background-color: transparent;
+    padding: 10px;
+    border: none;
+    border-radius: 20px;
+    line-height: 17px;
+    font-size: 20px;
     cursor: pointer;
 
 }

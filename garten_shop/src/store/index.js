@@ -8,6 +8,10 @@ import {thunk} from 'redux-thunk'
 import { persistReducer, persistStore} from 'redux-persist'
 import storage from 'redux-persist/lib/storage'
 import categoriesSlice from './categoriesSlice'
+import { isAddReducer } from './isAddReducer'
+import { filterReducer } from './FilterReducer'
+import modalSlice from './modalSlice'
+import { categoriesReducer } from './categoriesReducer'
 
 
 
@@ -25,9 +29,11 @@ const persingConfig = {
 const rootReduser = combineReducers({
     products: productsReducer,
     cart: cartReducer,
-    categories: categoriesSlice
+    categories: categoriesReducer,
+    isAdd: isAddReducer,
+    filter: filterReducer,
+    modal: modalSlice
 
-    // oneProduct: oneProductReducer
 })
 
 export const store = configureStore({

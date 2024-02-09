@@ -1,3 +1,8 @@
+.addProductToCartDiv{
+    
+    font-size: 32px;
+    font-weight: 700;
+}
 .productCard {
     position: relative;
     border: 1px solid rgb(221, 221, 221);

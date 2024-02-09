@@ -4,6 +4,9 @@
     box-sizing: border-box;
     font-family: 'Montserrat', sans-serif;
 }
+.app {
+    position: relative;
+}
 
 /* vmesto wrapper */
 /* ======================== */
@@ -41,4 +44,15 @@ h4 {
     margin-top: 40px;
     flex-wrap: wrap;
     gap: 32px;
+}
+.addProductToCartDiv{    
+    position: fixed;
+    bottom: 32px;
+    right: 32px;
+    opacity: 0;
+    transition: all .3s ease-in;
+}
+.show {
+    opacity: 1;
+  
 }

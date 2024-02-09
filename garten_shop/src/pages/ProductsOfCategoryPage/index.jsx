@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux"
 import {  fetchCategoryProduct, fetchProductsListByCategory } from "../../asyncActions/products"
 import {  Link, useParams } from "react-router-dom"
 import ProductItem from "../../components/Products/ProductItem"
+import FilterPanel from "../../components/FilterPanel"
 
 export default function ProductsOfCategoryPage(){
     const  {categoryID} = useParams()
@@ -18,17 +19,21 @@ export default function ProductsOfCategoryPage(){
        
   
     },[])
-    // console.log( products)
+    console.log( products)
     return(
         <div className="container">
             ProductsOfCategoryPage
             <h2>{category}</h2>
+            <FilterPanel />
          <div className="cardsList">
 
-            {products?.map(el => 
-            <Link to={`/categories/${el.categoryId}/${el.id}`}>
-                <ProductItem prod={el}/>
+            {products?.map(prod => (
+                prod?.isShowFrom && prod?.isShowTo && prod?.isShowSale &&
+
+            <Link key={prod.id} to={`/categories/${category}/${prod.id}`}>
+                <ProductItem prod={prod}/>
             </Link>
+            )
              
             )}
          </div>

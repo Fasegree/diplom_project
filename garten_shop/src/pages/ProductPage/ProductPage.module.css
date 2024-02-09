@@ -1,0 +1,79 @@
+.productCard{
+    display: flex;
+    gap: 32px;
+}
+.productCard img{
+    width: 780px;
+    border-radius: 12px;
+}
+.description{
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+.cardPrice{
+    display: flex;
+}
+
+.controlBtn{
+    height: 58px;
+    gap: 32px;
+}
+.controlAll{
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    height: 100%;
+    gap: 32px;
+}
+
+.control button,
+.control p {
+  outline: 1px solid #ddd; 
+  margin: 0; 
+  width: 100%;
+ 
+  
+}
+
+.control > p {
+    width: 96px;
+    display: flex;
+    justify-content: center;
+    align-items:  center;
+}
+
+.control {
+
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    /* display: flex; */
+    gap: 32px;
+    align-items: stretch;
+}
+.control button:first-child{
+    position: absolute;
+}
+.control p{
+    position: absolute;
+    left: 30px;
+    height: 100%;
+}
+.control button:last-child{
+    position: absolute;
+    left: 100px;
+
+    
+}
+
+.control button{
+    /* height: 100%; */
+    width: 58px;
+    aspect-ratio: 1;
+    border: 1px solid #ddd;
+    background-color: #fff;
+    border-radius: 6px;
+    cursor: pointer;
+    z-index: 5;
+}

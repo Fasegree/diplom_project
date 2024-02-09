@@ -1,27 +1,43 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useParams } from 'react-router-dom';
-import { fetchCatigoriesList } from '../../../asyncActions/products';
+import { fetchCatigoriesList, fetchProductById } from '../../../asyncActions/products';
 import { ROOT_URL } from '../../../App';
 import s from './CategoriesList.module.css'
-
-export default function CategoriesList({ page }) {
+export default function CategoriesList({ type }) {
     let categories = useSelector(store => store.categories);
-  categories = page === 'home' ? categories.categories.slice(0,-1) : categories.categories
+ 
   const dispatch = useDispatch();
   // !!!=======
   const { id } = useParams();
 useEffect(() => {
-      dispatch(fetchCatigoriesList()); 
-  }, [id, page]);
+  window.scrollTo(0, 0);
+     switch (type) {
+      case 'category':
+        if(id==='all'){
+            dispatch(fetchCatigoriesList(type))
+           
+        } else {
+            dispatch(fetchProductById(id))
+         
+        }
+        break;
+    case 'homeCategory':
+        
+        dispatch(fetchCatigoriesList(type));
 
-  // console.log(page);
+    default:
+        break;
+     
+     } 
+  }, [id, type, dispatch]);
+
 
 //===========
   return (
    
     <div className={`${s.categories} wrapper`}  style={{gridTemplateColumns: `repeat(${categories.length},1fr)`}}>
-            {categories.map(cat => {
+            {categories?.map(cat => {
                 return <Link key={cat.id} to={`/categories/${cat.id}`}>
                     <div  style={{backgroundImage: `url('${ROOT_URL+cat.image}')`}} className={s.categoryImg} key={cat.id}>
                        

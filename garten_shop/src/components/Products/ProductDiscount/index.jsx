@@ -5,38 +5,39 @@ import { Link } from "react-router-dom"
 import ProductItem from "../ProductItem"
 import FilterPanel from "../../FilterPanel"
 
-export default function ProductDiscount({page}){
+export default function ProductDiscount({type}){
 
     const { category, products }  = useSelector(store => store.products)
     const dispatch = useDispatch()
     
     useEffect(() => {
-        dispatch(fetchProductsAll())
+        dispatch(fetchProductsAll(type))
+        console.log(123)
     }, [])
-    let discountProducts = products?.filter(prod => prod.discont_price !== null);
-    console.log(discountProducts);
-    // костыль 
-    if (page === 'home' && discountProducts ) {
-       discountProducts = discountProducts
-                                        .map(product => ({
-                                            ...product,
-                                            discountPercentage: ((product.price - product.discont_price) / product.price) * 100
-                                        }))
-                                        .sort((a, b) => b.discountPercentage - a.discountPercentage)
-                                        .slice(0, 5);
-    } else{
+    // let discountProducts = products?.filter(prod => prod.discont_price !== null);
 
-         discountProducts = discountProducts
-    }
+    // // костыль на сторону reducera 
+    // if (type === 'home' && discountProducts ) {
+    //    discountProducts = discountProducts
+    //                                     .map(product => ({
+    //                                         ...product,
+    //                                         discountPercentage: ((product.price - product.discont_price) / product.price) * 100
+    //                                     }))
+    //                                     .sort((a, b) => b.discountPercentage - a.discountPercentage)
+    //                                     .slice(0, 4);
+    // } else{
+
+        //  discountProducts = discountProducts
+    // }
     // const discountProducts = products.filter(prod => prod.discont_price)
 
-    console.log(discountProducts);
+    // console.log(discountProducts);
     return (
         <div>
-            <FilterPanel type={'sale'}/>
+            {/* <FilterPanel type={'sale'}/> */}
             <div className="cardsList">
 
-            {discountProducts?.map(prod => {
+            {products?.map(prod => {
                 return (
                     <div key={prod.id}>
 

@@ -1,9 +1,9 @@
 import { useEffect, useRef } from "react";
-import DiscountOrderForm from "../../components/DiscountOrderForm";
 import CategoriesList from "../../components/Products/CategoriesList";
-import Recomend from "../../components/Recomend";
 import Title from "../../components/Title";
 import ProductDiscount from "../../components/Products/ProductDiscount";
+import DiscountOrderForm from "../../components/DiscountOrderForm/index";
+import Recomend from "../../components/Recomend";
 
 export default function HomePage(){
     const saleRef = useRef();
@@ -18,11 +18,11 @@ export default function HomePage(){
         <div className="container">
             <Recomend handleClick={handleClick} />
             <Title titleText={'Category'} btnText={`All categories`} btnLink={'/category/all'}/>
-            <CategoriesList page='home'/>
+            <CategoriesList type='homeCategory'/>
             <DiscountOrderForm/>
             <div ref={saleRef}></div>
             <Title titleText={'Sale'} btnText={`All sales`} btnLink={'/discount'}/>
-            <ProductDiscount page='home'/>
+            <ProductDiscount type='homeSale'/>
         </div>
       
     )

@@ -1,80 +1,56 @@
-import { useDispatch, useSelector } from "react-redux"
+import { useSelector } from "react-redux"
 import ProductInCart from "../../components/Products/ProductInCart"
 import s from "./CartPage.module.css"
 import InputCoupon from "../../components/Coupon"
-import ProductCard from "../../components/Products/ProductCard"
-import { ROOT_URL } from "../../App"
-import { addToCartAction, removeFromCart } from "../../store/cartReducer"
+import Title from "../../components/Title"
+import { useEffect } from "react"
+import ButtonCard from "../../ui/Btns/BtnCard"
 
 export default function CartPage() {
     const productsCart = useSelector(store => store.cart)
-    const dispatch = useDispatch()
-    return (
+
+    useEffect(() => {
+      window.scrollTo(0, 0)
+    },[ getTotalPrice()===0 ])
+
+    function getTotalPrice() {
+     
+    let  totalPrice = productsCart.reduce((acc, el) => {
+          if(el.discont_price){
+              return acc + (el.count * el.discont_price)
+          }else {
+              return acc + (el.count * el.price)
+          }
+      }, 0) 
+      return totalPrice
+  }
+    
+      return (
         <div className="container">
-            CartPage
-            {/* <ProductCard id={2}/> */}
-            <div className={s.orderDetiles}>
-                    <h3>Order details</h3>
+            <Title titleText={'Shopping cart'} btnText={'Back to the store'} btnLink={'/products/all'}/>
+            {getTotalPrice() ? (
                 <div>
-                    <p>3 items</p>
-                    <div className={s.totalPrice}>
-                        <p>Total</p>
-                        <h2>$541,00</h2>
+                    <div className={s.orderDetiles}>
+                        <h3>Order details</h3>
+                        <div>
+                            <p>{productsCart.length} items</p>
+                            <div className={s.totalPrice}>
+                                <p>Total</p>
+                                <h2>${getTotalPrice()}</h2>
+                            </div>
+                        </div>
+                        <InputCoupon page='cart'/>
                     </div>
+                    <ProductInCart productsCart={productsCart}/>
                 </div>
-                <InputCoupon page='cart'/>
-            </div>
-            <ProductInCart productsCart={productsCart}/>
-            {/* {productsCart.map(prod => {
-                return (
-                    <div>
-
-                        <span>
-                            {prod.title}
-                        </span>
-                        <span>
-                            {prod.count}
-                        </span>
-                    </div>
-                )
-            })} */}
-
-{/* {productsCart?.map(prod => {
-        console.log(prod);
-        return (
-          <div key={prod.id} className={s.cardWrapper} >
-            <div className={s.close}>X</div>
-            <div className={s.img} style={{ backgroundImage: `url(${ROOT_URL}/${prod.image})` }}></div>
-   
-            <div className={s.cardInfo}>
-           
-                <div className={s.title}>{prod.title}</div>
-
-
-              <div className={s.controllAll}>
-                <div className={s.control}>
-                  <button onClick={() => dispatch(removeFromCart(prod))}>-</button>
-                  <p>{prod.count}</p>
-                  <button onClick={() => dispatch(addToCartAction(prod))}>+</button>
+            ) : (
+                <div>
+                    <p>Looks like you have no items in your basket currently.</p>
+                    <ButtonCard title={'Continue Shopping'} btnLink={'/products/all'}/>
                 </div>
-
-                <div className={s.cardPriceContainer}>
-                  <div className={s.cardPrice}>
-                    {prod.discont_price ? <p className={s.currentPrice}> ${prod.discont_price}</p> : <p className={s.currentPrice}> ${prod.price}</p>}
-                    {prod.discont_price && <p className={s.oldPrice}>${prod.price}</p>}
-                  </div>
-                </div>
-
-
-              </div>
-
-            </div>
-
-          </div>
-
-        )
-      })} */}
-
+            )}
         </div>
-    )
-}
+    );
+  }
+
+  
