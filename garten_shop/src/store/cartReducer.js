@@ -4,7 +4,7 @@ const defaultState = JSON.parse(localStorage.getItem('cart')) ?? []
 
 
 
-const ADD_TO_CART = 'ADD_TO_CART'
+// const ADD_TO_CART = 'ADD_TO_CART'
 const REMOVE_FROM_CART = 'REMOVE_FROM_CART'
 const REMOVE_FROM_CART_POSITION = 'REMOVE_FROM_CART_POSITION'
 const ADD_MANY_TO_CART = 'ADD_MANY_TO_CART'
@@ -15,33 +15,33 @@ function checkProduct(state, id){
 }
 export const cartReducer = (state = defaultState, action) => {
    switch(action.type){
-        case ADD_TO_CART:
-            // console.log(action.payload);
-            // проверить есть ли товар в корзине
-            const index = state.findIndex(prod => prod.id === action.payload.id)
-            if(index === -1){
-                const newProd = {...action.payload, count: 1}
+        // case ADD_TO_CART:
+        //     // console.log(action.payload);
+        //     // проверить есть ли товар в корзине
+        //     const index = state.findIndex(prod => prod.id === action.payload.id)
+        //     if(index === -1){
+        //         const newProd = {...action.payload, count: 1}
                 
-                return [...state, newProd]
-            } else {                
-                return state.map(prod => {
-                   if (prod.id === action.payload.id) {                    
-                    return {...prod, count: prod.count +1} 
-                   }  else return prod
-                });
-            }
+        //         return [...state, newProd]
+        //     } else {                
+        //         return state.map(prod => {
+        //            if (prod.id === action.payload.id) {                    
+        //             return {...prod, count: prod.count +1} 
+        //            }  else return prod
+        //         });
+        //     }
         case ADD_MANY_TO_CART:
-            // console.log(index);
-          if(checkProduct(state, action.payload.product.id) === -1){
+            console.log(state, action.payload);
+          if(checkProduct(state, action.payload?.id) === -1){
             const newProduct = {
-                ...action.payload.product,
+                ...action.payload,
                 count: action.payload.count
             };
             // console.log(checkProduct(state, action.payload.product.id) + 'is not a product');
             return [...state, newProduct]
           }
             return  state.map(prod => {
-                if (prod.id === action.payload.product.id) {   
+                if (prod.id === action.payload.id) {   
                     if(prod?.count)   {
                         return {...prod, count: prod.count + action.payload.count}
                     }   else{
@@ -85,7 +85,7 @@ export const cartReducer = (state = defaultState, action) => {
 }
 
 // action.payload = product
-export const addToCartAction = (payload) => ({type: ADD_TO_CART, payload})
+// export const addToCartAction = (payload) => ({type: ADD_TO_CART, payload})
 export const removeFromCart = (payload) => ({type: REMOVE_FROM_CART, payload})
 export const removeFromCartPositionAction = (payload) => ({type: REMOVE_FROM_CART_POSITION, payload})
 export const addManyToCartAction = (payload) => ({type: ADD_MANY_TO_CART, payload})

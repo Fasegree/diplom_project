@@ -18,14 +18,13 @@ const PRODUCTS_SALE = 'PRODUCTS_SALE';
 
 const FILTER_ALL = 'FILTER_ALL';
 
-// const FILTER_FROM = 'FILTER_FROM';
-// const FILTER_TO = 'FILTER_TO';
-// const FILTER_BY_SALE = 'FILTER_BY_SALE';
 
 const FILTER_BY_DEFAULT = 'FILTER_BY_DEFAULT';
 const FILTER_BY_NEWEST = 'FILTER_BY_NEWEST';
 const FILTER_HIGH_LOW = 'FILTER_HIGH_LOW';
 const FILTER_LOW_HIGH = 'FILTER_LOW_HIGH';
+
+const INCR_CONTROL_COUNT = 'INCR_CONTROL_COUNT';
 
 function getFilterFrom(el, from) {
    
@@ -64,13 +63,15 @@ export const productsReducer = (state = defaultState, action) => {
         case ASYNC_CATEGORY_LIST:
             return { ...action.payload, category: 'Categories' };
         case ASYNC_PRODUCTS_OF_CATEGORY:
+            console.log(action.payload + ' dwsdsadsaction payload');
             return { ...action.payload };
         case ASYNC_PRODUCTS_ALL:
             return { ...action.payload, category: 'All products' };
         case PRODUCTS_SALE:
             return { ...action.payload, category: 'Discounted items' };
         case ASYNC_PRODUCT_BY_ID:
-            return action.payload[0];
+            console.log({...action.payload });
+            return {...action.payload};
        
         case FILTER_ALL:
             if(action.payload.from >=0){
@@ -86,10 +87,10 @@ export const productsReducer = (state = defaultState, action) => {
    
 
         case FILTER_BY_DEFAULT:
-            const filterDefault = action.payload.products.sort((a, b) => a.id - b.id);
+            const filterDefault = action.payload.products.slice().sort((a, b) => a.id - b.id);
             return { ...action.payload, products: filterDefault };
         case FILTER_BY_NEWEST:
-            const filterNewest = action.payload.products.sort((a, b) => b.updatedAt - a.updatedAt);
+            const filterNewest = action.payload.products.slice().sort((a, b) => b.updatedAt - a.updatedAt);
             return { ...action.payload, products: filterNewest };
         case FILTER_HIGH_LOW:
             const filterHighLow = action.payload.products.map(el => ({...el, curent_price: el.discont_price ?  el.discont_price : el.price}) ).sort((a, b) => b.curent_price - a.curent_price);
@@ -97,6 +98,11 @@ export const productsReducer = (state = defaultState, action) => {
         case FILTER_LOW_HIGH:
             const filterLowHigh = action.payload.products.map(el => ({...el, curent_price: el.discont_price ?  el.discont_price : el.price}) ).sort((a, b) => a.curent_price - b.curent_price);
             return { ...action.payload, products: filterLowHigh };
+
+        case INCR_CONTROL_COUNT:
+        
+                    return {...state, count: state.count + action.payload.count }
+           
         default:
             return state;
     }
@@ -117,3 +123,5 @@ export const filterByDefaultAction = (payload) => ({ type: FILTER_BY_DEFAULT, pa
 export const filterNewestAction = (payload) => ({ type: FILTER_BY_NEWEST, payload });
 export const filterHighLowAction = (payload) => ({ type: FILTER_HIGH_LOW, payload });
 export const filterLowHighAction = (payload) => ({ type: FILTER_LOW_HIGH, payload });
+
+export const incrControlCountAction = (payload) => ({ type: INCR_CONTROL_COUNT, payload });

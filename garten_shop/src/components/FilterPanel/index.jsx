@@ -4,7 +4,8 @@ import { useEffect } from "react";
 import { filterHighLowAction, filterLowHighAction, filterNewestAction } from "../../store/FilterReducer";
 
 import s from "./FilterPanel.module.css"
-export default function FilterPanel({ from = 0, to = Number.MAX_SAFE_INTEGER, checkSale = false, type = 'default', id }) {
+import { isPage } from "../../App";
+export default function FilterPanel({  type = 'default'}) {
    
     const dispatch = useDispatch()
     const products = useSelector(store => store.products);
@@ -67,15 +68,17 @@ export default function FilterPanel({ from = 0, to = Number.MAX_SAFE_INTEGER, ch
                 <input name="from" placeholder="from" />
                 <input name="to" placeholder="to" />
             </div>
+            {type !== isPage.sale && 
              <div className={s.discount_filter}>
 
-            {type !== 'sale' && 
             <label className={s.labelCheck}>
-                Discounted items
+                <p>Discounted items</p>
+                
                 <input className={s.check_Box} name="checkSale" type="checkbox" id="" />  
 
-            </label>}
+            </label>
             </div>
+            }
 
             <div className={s.sorted_filter}>
             <span>Sorted</span>

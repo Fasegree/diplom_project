@@ -1,28 +1,46 @@
 .btn {
-    /* width: 218px;
-    height: 58px; */
+    background-color: rgba(51, 153, 51, 1);
+    color: var(--white);
+    border:1px solid transparent;
     height: 100%;
     padding: 10px 20px;
-    /* margin-top: 40px; */
-    font-family: "Montserrat", sans-serif;
     font-size: 20px;
     font-weight: 400;
     text-decoration: none;
-    background-color: rgba(51, 153, 51, 1);
-    color: white;
+    /* border: none; */
+    border-radius: 6px;
+    cursor: pointer;
+    z-index: 5;
+    transition: .4s;
+    
+}
+.btnAdded {
+    background-color: white;
+    color: #282828;
+    height: 100%;
+    padding: 10px 20px;
+    font-size: 20px;
+    font-weight: 400;
+    text-decoration: none;
     border: none;
     border-radius: 6px;
     cursor: pointer;
     z-index: 5;
-    
+}
+
+.onclick{
+    background: var(--white);
+    color: var(--txt-black);
 }
 
 .btn:hover {
     
     background: var(--black);
+    border:1px solid var(--grey);
 
 }
 .btn:active {
+    opacity: .5;
     background: var(--white);
     color: var(--txt-black);
 }

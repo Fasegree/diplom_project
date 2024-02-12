@@ -14,27 +14,10 @@ export default function ProductDiscount({type}){
         dispatch(fetchProductsAll(type))
         console.log(123)
     }, [])
-    // let discountProducts = products?.filter(prod => prod.discont_price !== null);
 
-    // // костыль на сторону reducera 
-    // if (type === 'home' && discountProducts ) {
-    //    discountProducts = discountProducts
-    //                                     .map(product => ({
-    //                                         ...product,
-    //                                         discountPercentage: ((product.price - product.discont_price) / product.price) * 100
-    //                                     }))
-    //                                     .sort((a, b) => b.discountPercentage - a.discountPercentage)
-    //                                     .slice(0, 4);
-    // } else{
-
-        //  discountProducts = discountProducts
-    // }
-    // const discountProducts = products.filter(prod => prod.discont_price)
-
-    // console.log(discountProducts);
     return (
         <div>
-            {/* <FilterPanel type={'sale'}/> */}
+        
             <div className="cardsList">
 
             {products?.map(prod => {

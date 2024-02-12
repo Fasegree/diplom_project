@@ -59,34 +59,34 @@ background-color: transparent;
 }
 .dicountOrderForm h2{
     color: var(--txt-white);
-    padding-top: 32px;
-    padding-bottom: 24px;
+    /* padding-top: 32px; */
+    /* padding-bottom: 24px; */
 }
 .handsImg {
  
     width: 100%;
-    margin-right: 32px;
-    max-width: 100%;
-    margin: 0 auto;
     position: relative;
-    display: block;
 
 }
 .handsImg img {
     bottom: 0;
-    width: 748px;
-    height: 360px;
-    object-fit: cover;
-    margin-left: 32px;
-    margin-top: 23px;
-   position: absolute;
-
+    /* margin-left: 32px; */
+    position: absolute;
     max-width: 100%;
-    height: auto;
     display: block;
+    /* add */
+    width: 748px;
+    /* height: 360px; */
+    object-fit: cover;
+    /* fixed position for right side */
+    object-position: right;
 }
 .form{
     margin-bottom: 32px;
+    margin-right: 32px;
 }
 
 
+@media (max-width: 1000px) {
+    
+}

@@ -1,11 +1,9 @@
-import { useEffect } from "react";
-import { fetchProductById } from "../../../asyncActions/products";
-import { useDispatch, useSelector } from "react-redux";
-import { addToCartAction, removeFromCart } from "../../../store/cartReducer";
+
+import { useDispatch } from "react-redux";
+import { addManyToCartAction } from "../../../store/cartReducer";
 import s from './ProductItem.module.css'
 import ButtonCard from "../../../ui/Btns/BtnCard";
 import { ROOT_URL } from "../../../App";
-import { isAddToCartAction } from "../../../store/isAddReducer";
 
 export default function ProductItem({ prod }) {
     const dispatch = useDispatch()
@@ -17,10 +15,10 @@ export default function ProductItem({ prod }) {
     const addToCart = () => {
       // После 2 секунд изменяем состояние isVisible
       // App.js
-      dispatch(addToCartAction(prod));
-      dispatch(isAddToCartAction(true))
+      dispatch(addManyToCartAction(prod));
+    //   dispatch(isAddToCartActio(true))
       setTimeout(() => {
-        dispatch(isAddToCartAction(false))
+        // dispatch(isAddToCartAction(false))
       }, 2000);
     };
     return (

@@ -1,4 +1,4 @@
-:root{
+/* :root{
     --green: #393;
     --light-grey: #F1F3F4;
     --white: #fff;
@@ -8,7 +8,7 @@
     --grey-divider: #DDD;
     --black: #282828;
     
-}
+} */
 
 
 .header {
@@ -59,11 +59,11 @@
     align-items: center;
     background-color: var(--green);
     width: 26px;
-    font-size: 10px;
     aspect-ratio: 1;
-    color: white;
+    color: var(--white);
     font-size: 12px;
     border-radius: 50%;
+    font-weight: 600;
 
 }
 

@@ -5,7 +5,7 @@ export default function Footer(){
     return(
         <div className='container'>
 
-        <div className='wrapper'>
+        <div>
             <h2 className={s.contact}>Contact</h2>
             <div className={s.content}>
 

@@ -1,5 +1,14 @@
+.textEmptyCart {
+    padding-bottom: 32px;
+}
+.orderContainer{
+    /* margin-top: 40px; */
+    display: flex;
+    flex-direction: row-reverse;
+    gap: 32px;
+}
 .orderDetiles{
-background-color: rgb(241, 243, 244);
+    background-color: rgb(241, 243, 244);
     display: flex;
     border-radius: 12px;
     /* width: 548px; */
@@ -20,4 +29,45 @@ background-color: rgb(241, 243, 244);
     display: flex;
     align-items: baseline;
     gap: 32px;
+}
+
+
+
+
+/* ///Modal */
+/* Modal.module.css */
+.modalOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modalContent {
+    border-radius: 12px;
+    background: var(--green);
+    padding: 32px;
+    border-radius: 8px;
+    position: relative;
+}
+
+.closeButton {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+}
+.congratulations{
+    font-size: 40px;
+    margin-bottom: 24px;
+
+}
+.modalTxt p{
+    padding-bottom: 20px;
+    color: var(--txt-white);
 }

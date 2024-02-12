@@ -6,7 +6,7 @@ export default function CategoriesPage({type}){
     
     return(
         <div className="container">
-            Categories Page
+        
          
             <CategoriesList type={type}/>
         </div>

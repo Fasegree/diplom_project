@@ -1,49 +1,78 @@
 .discount_form {
-    margin-top: 56px;
-    margin-right: 32px;
+  
     display: flex;
     flex-direction: column;
 
 }
 .discount_form input {
     margin-bottom: 16px;
-    border: 1px solid #ccc;
+    border: 1px solid var(--white, #fff);
     border-radius: 4px;
 }
 .discountInput input {
+    padding-left: 32px;
+    padding-top: 16px;
+    padding-bottom: 16px;
     font-size: 20px;
     height: 58px;
-    background-color: rgba(255, 255, 255, 0);
+    background-color: #ffffff00;
+    color: var(--white, #fff);
 }
 .discountInput input::placeholder {
-    color: white;
-    text-indent: 30px;
+    
+    padding-top: 16px;
+    padding-bottom: 16px;
+    color: var(--white, #fff);
+    /* text-indent: 30px; */
 }
 
 .blackPlaceholder input{
     font-size: 20px;
     height: 58px;
-    background-color: rgb(255, 255, 255);
+    background-color: var(--white, #fff);
 }
 .blackPlaceholder input::placeholder{
-    color: rgb(92, 92, 92);
+    color: #5c5c5c;
     text-indent: 30px;
 }
 .couponBtn {
     margin-top: 16px;
     width: 100%;
-
+    color: var(--black);
     height: 58px;
-    background-color: #fff;
-    border: 0px solid #ccc;
+    background-color: var(--white, #fff);
+    border: 0px solid var(--white);
     border-radius: 6px;
     cursor: pointer;
     font-size: 20px;
-    font-family: "Montserrat", sans-serif;
+ 
     font-weight: 600;
 }
 
-button:hover {
-    color: white;
-    background-color: #000000;
+.couponBtn:hover {
+    color: var(--white, #fff);
+    background-color: var(--black, #282828);
+}
+.disabledBtn {
+    margin-top: 16px;
+    width: 100%;
+
+    height: 58px;
+    background-color: var(--white, #fff);
+    border: 0px solid var(--white);
+    border-radius: 6px;
+    background: var(--light-grey);
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 130%;
+    text-align: center;
+    color: var(--green);
+}
+.disabledBtn:hover {
+    background: var(--light-grey);
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 130%;
+    text-align: center;
+    color: var(--green);
 }

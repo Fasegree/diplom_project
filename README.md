@@ -101,32 +101,3 @@ get normal all products
             isSale: false,
             sortBy: 'default'
         }
-
-9.02 filter is working 
-    {category: '', 
-        products: arr.map(el => ({...el, isShowFrom: true, isShowTo: true, isShowSale: true })),  
-        count: 1,
-        from: 0,
-        to: Infinity,
-        isSale: false,
-        sortBy: 'default'
-        }
-
-10.02.2024 
-rest: 
-Breadcrumb,
-ProductItem,
-Cart => emptyStyle, card Style, BtnControl, btnOrder(logic form)
-ModalWindow => close 
-
-LS, Adaptive
-
-11.02.2024
-rest: 
-Breadcrumb,
-ProductItem,
-Cart => emptyStyle, card Style, BtnControl, btnOrder(logic form)
-ModalWindow => close 
-
-LS, Adaptive
-useLocation() opredelenie navigacii path navMenu active Menu green 

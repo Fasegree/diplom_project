@@ -7,7 +7,7 @@
     position: relative;
     border: 1px solid rgb(221, 221, 221);
     border-radius: 12px;
-    width: 316px;
+  
     object-fit: cover;
     overflow: hidden;
 }
@@ -19,7 +19,6 @@
     position: absolute;
     color: white;
     font-size: 20px;
-    /* padding: 4px 8px; */
     right: 16px;
     top: 16px;
     width: 63px;
@@ -33,7 +32,7 @@
 
 }
 .productsImg {
-    height: 422px;
+    height: 284px;
     width: 316px;
     border-bottom: 1px solid rgb(221, 221, 221);
     background-size: cover;
@@ -46,8 +45,7 @@
     bottom: -46px;
     left: 16px;
     transition: .3s linear;
-    /* border: 3px solid #f00; */
- 
+
  
 }
 .productCard:hover .btnAdd {
@@ -83,3 +81,4 @@ gap: 16px;
     color: rgba(139, 139, 139, 1);
 
 }
+/* =========================================================================================== */

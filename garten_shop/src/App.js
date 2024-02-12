@@ -17,9 +17,17 @@ import CategoriesPage from './pages/CategoriesPage';
 
 export const ROOT_URL = 'http://localhost:3333'
 // export const ROOT_URL = 'https://project-fe-vxeu.onrender.com'
-
+export const isPage = {
+  home: 'home',
+  all: 'all',
+  sale:'sale',
+  category: 'category',
+  cart: 'cart',
+  productPage: 'productPage',
+}
 function App() {
   const isAddToCart = useSelector((state) => state.isAdd);
+
 
 
   
@@ -30,12 +38,12 @@ function App() {
       {/* <Modal /> */}
       <Header/>
       <Routes>
-        <Route path='/' element={<HomePage/>}/>
-       <Route path='/products/all'  element={<ProductsAllPage type='all' />}/>
+        <Route path='/' element={<HomePage />}/>
+       <Route path='/products/all'  element={<ProductsAllPage type={isPage.all} />}/>
        {/* <Route path='/products'  element={<ProductsAllPage type='all' />}/> */}
-        <Route path='/discount' element={<ProductsAllPage type='sale'/>}/> 
+        <Route path='/discount' element={<ProductsAllPage type={isPage.sale}/>}/> 
       
-        <Route path='/category/:id' element={<CategoriesPage type='category' />}/>
+        <Route path='/category/:id' element={<CategoriesPage type={isPage.category} />}/>
         {/* <Route path='/category/' element={<CategoriesPage type='category' />}/> */}
         <Route path='/categories/:categoryID' element={<ProductsOfCategoryPage/>}/>
         <Route path='/categories/:categoryID/:product_id' element={<ProductPage/>}/>

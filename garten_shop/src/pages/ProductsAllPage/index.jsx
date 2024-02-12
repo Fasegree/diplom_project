@@ -6,7 +6,7 @@ export default function ProductsAllPage({type}){
         window.scrollTo(0, 0);
     },[])
     return (
-        <div>
+        <div >
 
             <ProductList type={type}/>
         </div>

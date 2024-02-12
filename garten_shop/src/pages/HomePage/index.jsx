@@ -4,6 +4,7 @@ import Title from "../../components/Title";
 import ProductDiscount from "../../components/Products/ProductDiscount";
 import DiscountOrderForm from "../../components/DiscountOrderForm/index";
 import Recomend from "../../components/Recomend";
+import { isPage } from "../../App";
 
 export default function HomePage(){
     const saleRef = useRef();
@@ -16,13 +17,13 @@ export default function HomePage(){
     },[])
     return(
         <div className="container">
-            <Recomend handleClick={handleClick} />
-            <Title titleText={'Category'} btnText={`All categories`} btnLink={'/category/all'}/>
-            <CategoriesList type='homeCategory'/>
+            {/* <Recomend handleClick={handleClick} /> */}
+            {/* <Title titleText={'Category'} btnText={`All categories`} btnLink={'/category/all'}/> */}
+            {/* <CategoriesList type={isPage.home}/> */}
             <DiscountOrderForm/>
-            <div ref={saleRef}></div>
-            <Title titleText={'Sale'} btnText={`All sales`} btnLink={'/discount'}/>
-            <ProductDiscount type='homeSale'/>
+            {/* <div ref={saleRef}></div> */}
+            {/* <Title titleText={'Sale'} btnText={`All sales`} btnLink={'/discount'}/> */}
+            {/* <ProductDiscount type={isPage.home}/> */}
         </div>
       
     )

@@ -6,6 +6,7 @@ import { Link, useParams } from "react-router-dom"
 import s from './ProductList.module.css'
 import FilterPanel from "../../FilterPanel"
 import { fetchProductsAll } from "../../../asyncActions/products"
+import { isPage } from "../../../App"
 
 export default function ProductList({type}){
 
@@ -19,15 +20,15 @@ export default function ProductList({type}){
     useEffect(() => {
         // console.log("all "+ type);
         switch (type) {
-            case 'all':
+            case isPage.all:
                 dispatch(fetchProductsAll(type))
                 
                 break;
-            case 'sale':
+            case isPage.sale:
                 dispatch(fetchProductsAll(type))
           
                 break;
-            case 'homeSale':
+            case isPage.home:
                 dispatch(fetchProductsAll(type));
           
                 break;

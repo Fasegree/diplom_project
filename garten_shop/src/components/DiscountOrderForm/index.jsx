@@ -3,25 +3,23 @@ import BtnBanner from '../../ui/Btns/BtnBanner'
 import s from './DiscountOrderForm.module.css'
 import discountImg from './media/image.png'
 import InputCoupon from '../Coupon'
+import { useDispatch, useSelector } from 'react-redux'
+import { isGetCouponAction } from '../../store/isAddReducer'
+import { useEffect } from 'react'
 
 export default function DiscountOrderForm(){
- 
+    const { isGetCoupon } = useSelector(store => store.isAdd)
+    const dispatch = useDispatch()
+    function getCoupon(){
+        const newStateCoupon ={isGetCoupon: true}
+        dispatch(isGetCouponAction(newStateCoupon))
+    }
+    useEffect(() =>{
+
+    }, [isGetCoupon])
     return (
         <div className="wrapper">
-            {/* <form className={s.form} onSubmit={handleSubmit(onSubmit)}>
-                    <h2> 5% off on the first order</h2>
-                <div className={s.content}>
-                    <div className={s.img}>
-                         <img src={discountImg} alt="dicount"/>
-                    </div>
-                    <form className={s.inputs}>
-                        <input className={errors.firstName && s.inputError} {...firstNameInput} type="text" placeholder='Name' />
-                        <input className={errors.phone && s.inputError} {...phoneInput} type="text" placeholder='Phone namber' />
-                        <input className={errors.email && s.inputError} {...emailInput} type="text" placeholder='Email' />
-                        <BtnBanner  btnText='Get a discount'/>
-                    </form>
-                </div>
-            </form> */}
+
 
             <div className={s.dicountOrderForm}> 
                     <h2> 5% off on the first order</h2>
@@ -30,8 +28,8 @@ export default function DiscountOrderForm(){
                          <img src={discountImg} alt="dicount"/>
                         </div>
                         <div className={s.form}>
-
-                        <InputCoupon />
+                    
+                        <InputCoupon action={getCoupon} />
                         </div>
 
                     </div>

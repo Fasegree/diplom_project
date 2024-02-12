@@ -4,6 +4,28 @@
     box-sizing: border-box;
     font-family: 'Montserrat', sans-serif;
 }
+/* :root{
+    --green: #393;
+    --light-grey: #F1F3F4;
+    --white: #fff;
+    --txt-black: #282828;
+    --txt-grey: #8B8B8B;
+    --txt-white: #fff;
+    --grey-divider: #DDD;
+    --black: #282828;
+    
+} */
+:root {
+	--green: #393;
+	--white: #fff;
+	--black: #282828;
+	--grey-divider: #ddd;
+	--grey: #8b8b8b;
+	--light-grey: #f1f3f4;
+	--txt-black: #282828;
+	--txt-white: #fff;
+	--txt-grey: #8b8b8b;
+}
 .app {
     position: relative;
 }
@@ -27,6 +49,7 @@ h2 {
     font-style: normal;
     font-weight: 700;
     line-height: 110%; /* 70.4px */
+    margin-block: 40px;
 }
 h3 {
     color: var(--txt-black, #282828);

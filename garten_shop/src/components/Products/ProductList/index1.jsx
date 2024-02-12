@@ -7,6 +7,7 @@ import { Link, useParams } from "react-router-dom"
 
 
 import FilterPanel from "../../FilterPanel"
+import { isPage } from "../../../App"
 
 export default function ProductList({type}){
 
@@ -17,7 +18,7 @@ export default function ProductList({type}){
 
     
     useEffect(() => {
-        if(type==='all'){
+        if(type===isPage.all){
             dispatch(fetchProductsAll())
         }else{
 

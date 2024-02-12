@@ -30,7 +30,7 @@ export default function ProductsOfCategoryPage(){
             {products?.map(prod => (
                 prod?.isShowFrom && prod?.isShowTo && prod?.isShowSale &&
 
-            <Link key={prod.id} to={`/categories/${category}/${prod.id}`}>
+            <Link key={prod.id} to={`/categories/${categoryID}/${prod.id}`}>
                 <ProductItem prod={prod}/>
             </Link>
             )

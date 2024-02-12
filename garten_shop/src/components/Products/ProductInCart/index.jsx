@@ -1,50 +1,39 @@
 import React, { useEffect } from 'react'
 import s from './ProductInCart.module.css'
-import { ROOT_URL } from '../../../App'
-import { useDispatch, useSelector } from 'react-redux';
+import { ROOT_URL, isPage } from '../../../App'
+import { useDispatch } from 'react-redux';
 import { Link, useParams } from 'react-router-dom';
-import { fetchProductsAll } from '../../../asyncActions/products';
-import ProductItem from '../ProductItem';
-import { addToCartAction, removeFromCart, removeFromCartPositionAction } from '../../../store/cartReducer';
+import {  removeFromCartPositionAction } from '../../../store/cartReducer';
+import Control from '../../../ui/Btns/Control';
+import {CloseBtn} from '../../../ui/Btns/CloseBtn'
 
 
 
-export default function ProductInCart({productsCart}) {
-  
+export default function ProductInCart({ productsCart }) {
+
   const dispatch = useDispatch()
   const { id } = useParams();
-  // const  products  = useSelector(store => store.cart);
-  // const { category, products } = useSelector((store) => store.cart);
 
 
-  useEffect(() => {
-
-    
-
-  }, [])
-  // console.log(products);
-  
   return (
     <div className={s.cardsWrapper}>
       {productsCart?.map(prod => {
-        console.log(prod);
+        
         return (
           <div key={prod.id} className={s.cardWrapper} >
-            <button className={s.close} onClick={() => dispatch(removeFromCartPositionAction(prod))}>X</button>
-           
-            <div className={s.img} style={{ backgroundImage: `url(${ROOT_URL}/${prod.image})` }}></div>
+            <button className={s.close} onClick={() => dispatch(removeFromCartPositionAction(prod))}>
+            x</button>
+            <Link to={`/categories/${prod.categoryId}/${prod.id}`}>
+
+              <div className={s.img} style={{ backgroundImage: `url(${ROOT_URL}/${prod.image})` }}></div>
+            </Link>
 
             <div className={s.cardInfo}>
-           
-                <div className={s.title}>{prod.title}</div>
-
+              <div className={s.title}>{prod.title}</div>
 
               <div className={s.controllAll}>
-                <div className={s.control}>
-                  <button onClick={() => dispatch(removeFromCart(prod))}>-</button>
-                  <p>{prod.count}</p>
-                  <button onClick={() => dispatch(addToCartAction(prod))}>+</button>
-                </div>
+                <Control product={prod} page={isPage.cart} />
+
 
                 <div className={s.cardPriceContainer}>
                   <div className={s.cardPrice}>

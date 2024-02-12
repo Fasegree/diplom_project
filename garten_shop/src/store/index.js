@@ -4,10 +4,9 @@ import {combineReducers, configureStore } from '@reduxjs/toolkit'
 import { productsReducer } from './productsReducer'
 import { cartReducer } from './cartReducer'
 
-import {thunk} from 'redux-thunk'
+
 import { persistReducer, persistStore} from 'redux-persist'
 import storage from 'redux-persist/lib/storage'
-import categoriesSlice from './categoriesSlice'
 import { isAddReducer } from './isAddReducer'
 import { filterReducer } from './FilterReducer'
 import modalSlice from './modalSlice'
@@ -15,18 +14,18 @@ import { categoriesReducer } from './categoriesReducer'
 
 
 
-const initialState = []
+// const initialState = []
 
-const persingConfig = {
-    key: 'localStorage',
+const persistConfig = {
+    key: 'ab',
     storage,
-    whitelist: ['cart'],
-    blacklist: ['_persist']
+    // whitelist: ['cart'],
+    // blacklist: ['_persist']
 
 }
 
 
-const rootReduser = combineReducers({
+const rootReducer = combineReducers({
     products: productsReducer,
     cart: cartReducer,
     categories: categoriesReducer,
@@ -35,9 +34,10 @@ const rootReduser = combineReducers({
     modal: modalSlice
 
 })
+const persistedReducer = persistReducer(persistConfig, rootReducer)
 
 export const store = configureStore({
-    reducer: rootReduser,
+    reducer: persistedReducer
     // middleware: [thunk],
 })
 
@@ -46,4 +46,3 @@ export const store = configureStore({
 
 export const persistor = persistStore(store)
 // export const store = createStore(persistedReducer, applyMiddleware(thunk))
-//Reducer => category, OneProd, Cart, 
