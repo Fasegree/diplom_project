@@ -5,8 +5,9 @@ export default function Footer(){
     return(
         <div className='container'>
 
-        <div>
-            <h2 className={s.contact}>Contact</h2>
+        <footer className=' wrapper'>
+            {/* <h2 className={s.contact}>Contact</h2> */}
+            <h2 >Contact</h2>
             <div className={s.content}>
 
             <div>
@@ -29,11 +30,11 @@ export default function Footer(){
             </div>
             <div>
                 <p>Adress</p>
-                <h3>Linkstraße 2, 8 OG, 10 785, Berlin, Deutschland</h3>
+                <h3>Linkstraße 2, 8 OG, 10 785, Berlin, Deutschland</h3>
             </div>
             <div>
                 <p>Working Hours</p>
-                <h3>24 hours a day</h3>
+                <h3>24 hours a day</h3>
             </div>
             </div>
            
@@ -41,6 +42,10 @@ export default function Footer(){
                     <a href="https://www.maps.ie/population/">Calculate population in area</a>
                 </iframe>
           
+        </footer>
+        <div>
+            <p></p>
+            <p></p>
         </div>
         </div>
     )

@@ -17,13 +17,19 @@ export default function HomePage(){
     },[])
     return(
         <div className="container">
-            {/* <Recomend handleClick={handleClick} /> */}
-            {/* <Title titleText={'Category'} btnText={`All categories`} btnLink={'/category/all'}/> */}
-            {/* <CategoriesList type={isPage.home}/> */}
+            <Recomend handleClick={handleClick} />
+            
+            <div className="wrapper">
+
+            <Title titleText={'Category'} btnText={`All categories`} btnLink={'/category/all'}/>
+            </div>
+            <CategoriesList type={isPage.home}/>
+            <div className="wrapper">
             <DiscountOrderForm/>
-            {/* <div ref={saleRef}></div> */}
-            {/* <Title titleText={'Sale'} btnText={`All sales`} btnLink={'/discount'}/> */}
-            {/* <ProductDiscount type={isPage.home}/> */}
+            <div ref={saleRef}></div>
+            <Title titleText={'Sale'} btnText={`All sales`} btnLink={'/discount'}/>
+            <ProductDiscount type={isPage.home}/>
+            </div>
         </div>
       
     )

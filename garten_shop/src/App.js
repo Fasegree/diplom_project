@@ -14,6 +14,7 @@ import { isAddToCartAction } from './store/isAddReducer';
 import { useEffect } from 'react';
 import Modal from './components/Modal';
 import CategoriesPage from './pages/CategoriesPage';
+import ScrollToTopButton from './ui/Btns/ScrollToUp';
 
 export const ROOT_URL = 'http://localhost:3333'
 // export const ROOT_URL = 'https://project-fe-vxeu.onrender.com'
@@ -34,7 +35,8 @@ function App() {
 
   return (
     <div className='app'>
-      {<div className={`addProductToCartDiv ${isAddToCart && "show"}`}>ADD TO CART</div>}
+      {/* <ScrollToTopButton/> */}
+      {/* {<div className={`addProductToCartDiv ${isAddToCart && "show"}`}>ADD TO CART</div>} */}
       {/* <Modal /> */}
       <Header/>
       <Routes>
@@ -50,7 +52,7 @@ function App() {
         <Route path='/cart' element={<CartPage/>}/>
         <Route path='*' element={<NotFoundPage/>}/>
       </Routes>
-      <Footer/>
+      {/* <Footer/> */}
     </div>
   );
 }

@@ -8,6 +8,7 @@ import ButtonCard from "../../ui/Btns/BtnCard"
 import { addManyToCartAction } from "../../store/cartReducer"
 import Control from "../../ui/Btns/Control"
 import ShowDescription from "../../components/ShowDescription"
+import GridOneProduct from "../../components/Products/GridOneProdut"
 
 export default function ProductPage() {
     const product = useSelector(store => store.products)
@@ -24,7 +25,7 @@ export default function ProductPage() {
         // setCurrentCount(1);
     }, [ ])
 
-   console.log(product);
+//    console.log(product);
     // костыль !! 
     const {id, title, description, price, image, count, discont_price } = product 
     const productsInCart = useSelector(store => store.cart)
@@ -39,7 +40,7 @@ export default function ProductPage() {
     return (
         <div className="container">
     
-            <div className={s.productCard}>
+            {/* <div className={s.productCard}>
 
                 <div><img src={`${ROOT_URL}/${image}`} alt="" /></div>
                 <div className={s.cardInfo}>
@@ -57,7 +58,7 @@ export default function ProductPage() {
 
                     <div className={s.controlBtn}>
                         
-                        <Control product={product} type='productPage' page={isPage.productPage}/>
+                        <Control product={product} type={isPage.productPage} page={isPage.productPage}/>
 
                     </div>
 
@@ -69,8 +70,10 @@ export default function ProductPage() {
                 </div>
 
                 </div>
-                {/* cardInfo */}
-            </div>
+             
+            </div> */}
+
+            <GridOneProduct prod={product}/>
         </div>
     )
 }

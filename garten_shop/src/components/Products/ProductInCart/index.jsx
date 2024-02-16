@@ -39,7 +39,7 @@ export default function ProductInCart({ productsCart }) {
                   <div className={s.cardPrice}>
                     {prod.discont_price ? <p className={s.currentPrice}> ${prod.discont_price}</p> : <p className={s.currentPrice}> ${prod.price}</p>}
                     {prod.discont_price && <p className={s.oldPrice}>${prod.price}</p>}
-                    {prod.discont_price && <div className={s.discount}>{`-${Math.round(100 - prod.discont_price * 100 / prod.price)}%`}</div>}
+                    {/* {prod.discont_price && <div className={s.discount}>{`-${Math.round(100 - prod.discont_price * 100 / prod.price)}%`}</div>} */}
                   </div>
                 </div>
 

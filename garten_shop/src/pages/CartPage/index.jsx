@@ -8,6 +8,7 @@ import ButtonCard from "../../ui/Btns/BtnCard"
 import Modal from "../../components/Modal"
 import { isShowModalAction } from "../../store/isAddReducer"
 import { isPage } from "../../App"
+import { btnTitles } from "../../CONSTANTS"
 
 export default function CartPage() {
     const productsCart = useSelector(store => store.cart)
@@ -44,14 +45,12 @@ export default function CartPage() {
       return (
           <div className="container">
 
-<button onClick={handleOrderClick} className={s.orderButton}>
-                Заказать
-            </button>
+
 
             {isModalVisible && (
                 <Modal onClose={() => setModalVisible(false)}>
                 <div className={s.modalTxt}>
-                    <p className={s.congratulations}>Congratulations!</p>
+                    <h3 className={s.congratulations}>Congratulations!</h3>
                     <p>Your order has been successfully placed on the website.</p>
                     <p>A manager will contact you shortly to confirm your order.</p>
                 </div>
@@ -60,12 +59,13 @@ export default function CartPage() {
 
 
 
-            {/* {isShow && <Modal isShow={isShow}/>} */}
+        <div className="wrapper">
             <Title titleText={'Shopping cart'} btnText={'Back to the store'} btnLink={'/products/all'}/>
             {productsCart.length !==0 ? (
-                <div className={s.orderContainer}>
-                    <div>
-
+                <div className={`${s.orderContainer} `}>
+                    
+                 
+                    <ProductInCart productsCart={productsCart}/>
                     <div className={s.orderDetiles}>
                         <h3>Order details</h3>
                         <div>
@@ -77,15 +77,18 @@ export default function CartPage() {
                         </div>
                         <InputCoupon page={isPage.cart}  isModalVisible={isModalVisible} action={handleOrderClick}/>
                     </div>
-                    </div>
-                    <ProductInCart productsCart={productsCart}/>
+                   
+                   
                 </div>
             ) : (
-                <div className="wrapper">
+                <div >
                     <p className={s.textEmptyCart}>Looks like you have no items in your basket currently.</p>
-                    <ButtonCard title={'Continue Shopping'} btnLink={'/products/all'}/>
+                   <div className={s.btnBackToShop}>
+                    <ButtonCard title={btnTitles.cartContinueShopping} btnLink={'/products/all'}/>
+                   </div>
                 </div>
             )}
+        </div>
         </div>
     );
   }

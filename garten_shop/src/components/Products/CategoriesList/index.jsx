@@ -6,7 +6,7 @@ import { ROOT_URL, isPage } from '../../../App';
 import s from './CategoriesList.module.css'
 export default function CategoriesList({ type }) {
     let categories = useSelector(store => store.categories);
- 
+  console.log(categories);
   const dispatch = useDispatch();
   // !!!=======
   const { id } = useParams();
@@ -22,17 +22,24 @@ useEffect(() => {
 //===========
   return (
    <div >
-    {type!==isPage.home && <h2>Categories</h2>}
-    <div className={`${s.categories} `}  style={{gridTemplateColumns: `repeat(${categories.length},1fr)`}}>
+    {type!==isPage.home && <h2 className='wrapper'>Categories</h2>}
+      <div className={type===isPage.home ?  `${s.catContentHome} wrapper` : `${s.catContentCategoires} wrapper` }>
+     
             {categories?.map(cat => {
-                return <Link key={cat.id} to={`/categories/${cat.id}`}>
-                    <div  style={{backgroundImage: `url('${ROOT_URL+cat.image}')`}} className={s.categoryImg} key={cat.id}>
+              
+                
+             
+                return <div>
+                         <Link key={cat.id} to={`/categories/${cat.id}`}>
+                        {/* <div  style={{backgroundImage: `url('${ROOT_URL+cat.image}')`}} className={s.categoryImg} key={cat.id}> */}
+                        
+                          <img className={s.categoryImg} src={ROOT_URL+cat.image} alt="category" />
                        
+                        <div className={s.categoryTxt}>{cat.title}</div>
+                        </Link> 
                     </div>
-                    <div className={s.categoryTxt}>{cat.title}</div>
-                    </Link>
             })}
-        </div>
+       </div>
    </div>
 
 

@@ -130,3 +130,14 @@ ModalWindow => close
 
 LS, Adaptive
 useLocation() opredelenie navigacii path navMenu active Menu green 
+
+13.02.2024
+add liveSearch by Title. 
+Cart => emptyStyle, card Style, BtnControl, 
+ModalWindow => close 
+ProductItem,
+
+rest:
+cart => btnOrder(logic form)
+LS, Adaptive
+useLocation() opredelenie navigacii path navMenu active Menu green 

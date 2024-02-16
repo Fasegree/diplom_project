@@ -7,6 +7,7 @@ import FilterPanel from "../../FilterPanel";
 import { fetchProductsAll } from "../../../asyncActions/products";
 import { isPage } from "../../../App";
 
+
 export default function ProductList({type}) {
     const { category, products } = useSelector((store) => store.products);
     const dispatch = useDispatch();
@@ -22,20 +23,23 @@ export default function ProductList({type}) {
 
     return (
         <div className='container'>    
-            <h2 className={s.titleCategory}>{category}</h2>
-            <FilterPanel type={category==='Discounted items' ? isPage.sale: ''}/>
+            <h2 className={`${s.titleCategory} wrapper`}>{category}</h2>
+            {/* <FilterPanel type={category === 'Discounted items' ? isPage.sale : isPage.all}/> */}
             <div className={s.cardsContainer} >
-                <div className="cardsList">
+            <div>
+
+                <div className="cardsList wrapper">
 
                 {products?.length > 0 && products.map(prod => (
 
-                    prod?.isShowFrom && prod?.isShowTo && prod?.isShowSale &&
-                        <div key={prod.id}>
-                            <Link to={`/categories/${category}/${prod.id}`}>
+                    prod?.isShow && 
+                       
+                            <Link  key={prod.id} to={`/categories/${category}/${prod.id}`}>
                                 <ProductItem prod={prod} />
                             </Link>
-                        </div>
+                       
                 ))}
+                </div>
                 </div>
                
             </div>

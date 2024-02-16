@@ -1,7 +1,7 @@
-export default function Input(){
+export default function Input({...props}){
     return (
         <div>
-            <input/>
+            <input {...props}/>
         </div>
     )
 }

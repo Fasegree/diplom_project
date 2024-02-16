@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux"
 import { fetchProductsAll, fetchProductsList } from "../../../asyncActions/products"
 import { Link } from "react-router-dom"
 import ProductItem from "../ProductItem"
-import FilterPanel from "../../FilterPanel"
+import FilterPanel from "../../FilterPanelOld"
 
 export default function ProductDiscount({type}){
 
@@ -26,8 +26,8 @@ export default function ProductDiscount({type}){
 
                         <Link  to={`/categories/${prod.categoryId}/${prod.id}`}>
                     
-                        <ProductItem prod={prod} />
-                    </Link>
+                             <ProductItem prod={prod} />
+                        </Link>
                     </div>
                     )
             })}

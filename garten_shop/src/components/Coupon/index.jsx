@@ -1,46 +1,53 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import s from './Coupon.module.css';
 import ButtonCard from '../../ui/Btns/BtnCard';
 import { useForm } from 'react-hook-form';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { isPage } from '../../App';
+import postData from '../../asyncActions/postData';
+import { hideModalAction, isGetCouponAction, isShowModalAction, showModalAction } from '../../store/isAddReducer';
+import Modal from '../Modal';
+import { btnTitles } from '../../CONSTANTS';
 
 export default function InputCoupon({ page, action }) {
-  const  {isGetCoupon}  = useSelector(store => store.isAdd)
-  const { register, handleSubmit } = useForm();
-  console.log(isGetCoupon);
+  const  {isGetCoupon, isShowModal}  = useSelector(store => store.isAdd)
+  const [user, setUser] = useState({name: ''})
+  const dispatch = useDispatch()
+  const { register, handleSubmit, reset } = useForm();
+
 
   useEffect(() => {
-
   },[isGetCoupon])
 
 
   const onSubmit = async (data) => {
     try {
-      const response = await fetch(isPage.home ? 'http://localhost:3333/sale/send' : 'http://localhost:3333/order/send ', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(data),
-      });
-
-      if (response.ok) {
+      const success = await postData(data); // Вызвать функцию postData с данными из формы
+      console.log(success);
+      if (success) {
+        setUser(data)
         action && action();
-        alert('Ваш купон успешно отправлен!');
-        
-        console.log(response);
-        console.log(data);
+        reset();
+      
+      dispatch(isGetCouponAction());
+
+        dispatch(showModalAction());
+      setTimeout(()=>{
+     
+        dispatch(hideModalAction());
+      },5000)
       } else {
-        alert('Произошла ошибка при регистрации пользователя!');
       }
     } catch (error) {
       console.error('An error occurred:', error.message);
+      alert('Произошла ошибка при отправке запроса!');
     }
   };
-
   return (
     <div>
+      {isShowModal && <Modal onClose={() =>dispatch(hideModalAction())}>
+        Congratulation, {user.name}! You have suformccessfully added coupon.
+        </Modal>}
       <form className={`${s.discount_form} ${page === isPage.cart ? s.blackPlaceholder : s.discountInput}`} onSubmit={handleSubmit(onSubmit)}>
         <input
           className={s.discountInput}
@@ -80,10 +87,10 @@ export default function InputCoupon({ page, action }) {
           })}
         />
         {page === isPage.cart ? (
-          <ButtonCard title="Order" widthBtn="484" action={action} />
+          <ButtonCard title={btnTitles.cartOrderProductsDefault}  action={action} />
         ) : (
           <button className={isGetCoupon ?  s.disabledBtn: s.couponBtn}  disabled={isGetCoupon} type="submit">
-            {isGetCoupon ? "Request Submitted" : "Get a discount"}
+            {isGetCoupon ? btnTitles.couponDiscountGeted : btnTitles.couponDiscountDefault}
           </button>
         )}
       </form>

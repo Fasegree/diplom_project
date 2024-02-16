@@ -7,6 +7,7 @@ import { incrControlCountAction } from '../../../store/productsReducer';
 import { useParams } from 'react-router-dom';
 import { addPayload, decr, incr } from './HelpFunctions';
 import { isPage } from '../../../App';
+import { btnTitles } from '../../../CONSTANTS';
 
 export default function Control({ product, page }) {
     //================ for product page =================
@@ -35,7 +36,7 @@ export default function Control({ product, page }) {
         <p>{isPage.productPage ? product?.count : productsInCart.count}</p>
         <button onClick={() => incr(argumentsForFunctions)}>+</button>
     </div>
-    {page==isPage.productPage && <ButtonCard title='Add to card' widthBtn='316' action={() => addPayload(argumentsForFunctions)}/>}
+    {page==isPage.productPage && <ButtonCard title={btnTitles.productCardDefault}  action={() => addPayload(argumentsForFunctions)}/>}
 </div> 
   )
 }

@@ -6,7 +6,7 @@ import { asyncProductByIdAction, asyncProductsAllAction, asyncProductsOfCategory
 function getDefaultState(arr) {
         if(Array.isArray(arr)) {
             return {category: '', 
-                    products: arr.map(el => ({...el, isShowFrom: true, isShowTo: true, isShowSale: true, count: 1})),                      
+                    products: arr.map(el => ({...el, isShow: true, count: 1, currentPrice: el.discont_price?  el.discont_price : el.price})),                      
                     from: 0,
                     to: Infinity,
                     isSale: false,
@@ -14,7 +14,7 @@ function getDefaultState(arr) {
                    }
         } else {
             return {category: arr.category.title, 
-                    products: arr.data.map(el => ({...el, isShowFrom: true, isShowTo: true, isShowSale: true, count: 1 })),
+                    products: arr.data.map(el => ({...el, isShow: true, count: 1, currentPrice: el.discont_price?  el.discont_price : el.price})),     
                     from: 0,
                     to: Infinity,
                     isSale: false,
@@ -50,20 +50,22 @@ export function fetchProductsAll(type){
                   dispatch(asyncProductsAllAction(getDefaultState(sliceSale(data))) ) 
               }})
       } catch(err){
-        console.log('Oops' + err);
+     
       }
     }
 }
 // product list
 export function fetchProductsListByCategory(category){
     return function(dispatch){
+        console.log(category+ '    is category');
         try{
             fetch(ROOT_URL + '/categories/' + category)
+            
             .then(res => res.json())
             .then(data => dispatch(asyncProductsOfCategoryAction(getDefaultState(data))))
-
+            console.log(' async fetch..... ok');
         }catch(err){
-            console.log(err);
+            console.log('erroer is');
         }
     }
 }

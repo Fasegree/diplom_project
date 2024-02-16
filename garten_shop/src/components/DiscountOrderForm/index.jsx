@@ -18,7 +18,7 @@ export default function DiscountOrderForm(){
 
     }, [isGetCoupon])
     return (
-        <div className="wrapper">
+        <div>
 
 
             <div className={s.dicountOrderForm}> 

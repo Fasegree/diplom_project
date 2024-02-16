@@ -1,5 +1,5 @@
 .title{
-    margin-top: 80px;
+    margin-top: 40px;
     display: flex;
     flex: 1 1 0;
     justify-content: space-between;
@@ -21,6 +21,7 @@
     z-index: -1;
 }
 
+
 .title button{
     padding: 8px 16px;
     border-radius: 6px;
@@ -32,6 +33,7 @@
     z-index: 5;
     cursor: pointer;
     background-color: none;
+    white-space: nowrap;
 }
 .title button:hover{
     color: var(--grey);
@@ -39,4 +41,29 @@
 }
 .title button:active{
     color: var(--black);
+}
+
+
+@media (max-width:480px) {
+    .title button{
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 126%;
+        text-align: center;
+    }
+    .btnLineNav{
+        display: none;
+    }
+    .lineContainer{
+        display: none;
+    }
+}
+
+
+@media (max-width:360px) {
+    .title{
+        margin-top: 0px;
+    }
+    
+    
 }

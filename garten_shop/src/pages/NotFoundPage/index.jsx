@@ -3,6 +3,7 @@ import img4 from './media/4.svg'
 import img0 from './media/0.png'
 import { Link } from 'react-router-dom'
 import ButtonCard from '../../ui/Btns/BtnCard'
+import { btnTitles } from '../../CONSTANTS'
 
 export default function NotFoundPage(){
     return(
@@ -22,7 +23,7 @@ export default function NotFoundPage(){
 
                 <Link to="/" > 
           
-                <ButtonCard title='Go Home'widthBtn="209"/>
+                <ButtonCard title={btnTitles.notFoundGoHome}/>
       </Link>
                 {/* <BtnCard action={''} btnText={'Go home'}/> */}
             </div>

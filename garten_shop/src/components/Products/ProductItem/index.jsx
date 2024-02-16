@@ -4,6 +4,7 @@ import { addManyToCartAction } from "../../../store/cartReducer";
 import s from './ProductItem.module.css'
 import ButtonCard from "../../../ui/Btns/BtnCard";
 import { ROOT_URL } from "../../../App";
+import { btnTitles } from "../../../CONSTANTS";
 
 export default function ProductItem({ prod }) {
     const dispatch = useDispatch()
@@ -23,15 +24,15 @@ export default function ProductItem({ prod }) {
     };
     return (
         <div className={s.productCard}>
-            {discont_price && <div className={s.discount}>{`-${Math.round(100 - discont_price * 100 / price)}%`}</div>}
+            {discont_price &&
+            <div className={s.discount}>{`-${Math.round(100 - discont_price * 100 / price)}%`}</div>}
             <div className={s.imageBtn}>
                 <div className={s.productsImg} style={{ backgroundImage: `url(${ROOT_URL}/${image})` }} ></div>
 
                 <div className={s.btnAdd}>
                     <ButtonCard
-                        title={'Add to cart'}
+                        title={btnTitles.productCardAdded}
                         action={addToCart }
-                        widthBtn='284'
                     />
 
                 </div>

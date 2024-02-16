@@ -1,7 +1,9 @@
 .discount_form {
-  
+    /* max-width: 516px; */
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    /* align-items: center; */
 
 }
 .discount_form input {
@@ -17,6 +19,7 @@
     height: 58px;
     background-color: #ffffff00;
     color: var(--white, #fff);
+    
 }
 .discountInput input::placeholder {
     
@@ -75,4 +78,21 @@
     line-height: 130%;
     text-align: center;
     color: var(--green);
+}
+
+@media (max-width: 480px) {
+    .discountInput input {
+        width: 400px;
+        padding-left: 32ppx;
+        padding-top: 16px;
+        padding-bottom: 16px;
+        font-size: 20px;
+        height: 58px;
+        background-color: #ffffff00;
+        color: var(--white, #fff);
+        
+    }
+    .discount_form {
+        padding-left: 30px;
+    }
 }

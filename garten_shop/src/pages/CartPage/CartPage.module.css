@@ -1,20 +1,20 @@
 .textEmptyCart {
     padding-bottom: 32px;
 }
+
+
 .orderContainer{
-    /* margin-top: 40px; */
-    display: flex;
-    flex-direction: row-reverse;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
     gap: 32px;
+    
 }
 .orderDetiles{
     background-color: rgb(241, 243, 244);
     display: flex;
     border-radius: 12px;
-    /* width: 548px; */
     display: flex;
     flex-direction: column;
-    max-width: 700px;
     padding: 32px;
 }
 .orderDetiles h3{
@@ -54,6 +54,8 @@
     padding: 32px;
     border-radius: 8px;
     position: relative;
+    margin-left: 20px;
+    margin-right: 20px;
 }
 
 .closeButton {
@@ -63,11 +65,31 @@
     cursor: pointer;
 }
 .congratulations{
-    font-size: 40px;
-    margin-bottom: 24px;
+    color: var(--txt-white)
+    /* font-size: 40px;
+    margin-bottom: 24px; */
 
 }
 .modalTxt p{
     padding-bottom: 20px;
     color: var(--txt-white);
+}
+
+
+@media (max-width: 1000px) {
+    
+}
+@media (max-width: 768px) {
+    .orderContainer{
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        gap: 20px;
+        
+    }
+}
+@media (max-width: 480px) {
+    
+}
+@media (max-width: 360px) {
+    
 }

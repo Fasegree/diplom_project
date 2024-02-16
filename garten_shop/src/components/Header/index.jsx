@@ -11,7 +11,7 @@ import { isPage } from '../../App'
 
 export default function Header(){
     // проверка корзины и добавление countInCart useEffect(()=>{ fetch(cart)},[state.cart])
-   const dispatch = useDispatch()
+
    const productInCart = useSelector(state => state.cart)
  
      const countInCart = productInCart.reduce((acc,el) =>acc + el.count,0)
@@ -20,9 +20,9 @@ export default function Header(){
 
     
     return(
-        <div className='container'>
+        <div className='container '>
 
-        <div className={s.header }>
+        <header className={`${s.header} wrapper `}>
             <Link to={'/'}>
 
             <div className={s.logo}><img src={logo} alt='logo'/></div>
@@ -47,8 +47,8 @@ export default function Header(){
             </Link>
                 <BurgerMenu className={s.BurgerMenu}/>
             </div>
-        </div>
-        <Breadcrumbs/>
+        </header>
+        {/* <Breadcrumbs/> */}
         </div>
     )
 }
