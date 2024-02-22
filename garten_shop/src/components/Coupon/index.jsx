@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import s from './Coupon.module.css';
-import ButtonCard from '../../ui/Btns/BtnCard';
 import { useForm } from 'react-hook-form';
 import { useDispatch, useSelector } from 'react-redux';
 import { isPage } from '../../App';
@@ -8,9 +7,11 @@ import postData from '../../asyncActions/postData';
 import { hideModalAction, isGetCouponAction, isShowModalAction, showModalAction } from '../../store/isAddReducer';
 import Modal from '../Modal';
 import { btnTitles } from '../../CONSTANTS';
+import { removeAllFromCart } from '../../store/cartReducer';
 
 export default function InputCoupon({ page, action }) {
   const  {isGetCoupon, isShowModal}  = useSelector(store => store.isAdd)
+  const {productsInCart} = useSelector(store => store.cart)
   const [user, setUser] = useState({name: ''})
   const dispatch = useDispatch()
   const { register, handleSubmit, reset } = useForm();
@@ -23,18 +24,19 @@ export default function InputCoupon({ page, action }) {
   const onSubmit = async (data) => {
     try {
       const success = await postData(data); // Вызвать функцию postData с данными из формы
-      console.log(success);
+      // console.log(success);
       if (success) {
         setUser(data)
         action && action();
         reset();
-      
+      if(page === isPage.home)
       dispatch(isGetCouponAction());
 
         dispatch(showModalAction());
+        dispatch(removeAllFromCart());
       setTimeout(()=>{
-     
         dispatch(hideModalAction());
+        console.log('asdsad');
       },5000)
       } else {
       }
@@ -43,11 +45,13 @@ export default function InputCoupon({ page, action }) {
       alert('Произошла ошибка при отправке запроса!');
     }
   };
+  const text = ['Your order has been successfully placed on the website.', 'A manager will contact you shortly to confirm your order.11111111111111']
   return (
     <div>
-      {isShowModal && <Modal onClose={() =>dispatch(hideModalAction())}>
-        Congratulation, {user.name}! You have suformccessfully added coupon.
-        </Modal>}
+      {/* {isShowModal && (
+      <Modal modalTxt={text} onClose={() =>dispatch(hideModalAction())}>
+       
+        </Modal>)} */}
       <form className={`${s.discount_form} ${page === isPage.cart ? s.blackPlaceholder : s.discountInput}`} onSubmit={handleSubmit(onSubmit)}>
         <input
           className={s.discountInput}
@@ -87,7 +91,11 @@ export default function InputCoupon({ page, action }) {
           })}
         />
         {page === isPage.cart ? (
-          <ButtonCard title={btnTitles.cartOrderProductsDefault}  action={action} />
+          // <ButtonCard title={btnTitles.cartOrderProductsDefault}  type="submit" />
+          // <ButtonCard title={btnTitles.cartOrderProductsDefault}  action={action} />
+          <button className={isShowModal ?  s.disabledBtn: s.btn}  disabled={isShowModal} type="submit">
+            {isShowModal ? btnTitles.cartOrderProductsGetted : btnTitles.cartOrderProductsDefault}
+          </button>
         ) : (
           <button className={isGetCoupon ?  s.disabledBtn: s.couponBtn}  disabled={isGetCoupon} type="submit">
             {isGetCoupon ? btnTitles.couponDiscountGeted : btnTitles.couponDiscountDefault}

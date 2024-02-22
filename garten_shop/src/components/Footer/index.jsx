@@ -43,10 +43,10 @@ export default function Footer(){
                 </iframe>
           
         </footer>
-        <div>
+        {/* <div>
             <p></p>
             <p></p>
-        </div>
+        </div> */}
         </div>
     )
 }

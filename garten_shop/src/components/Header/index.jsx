@@ -6,8 +6,8 @@ import logo from './media/logo.svg'
 import cart from './media/cart.svg'
 import BurgerMenu from './Burger'
 import { useDispatch, useSelector } from 'react-redux'
-import Breadcrumbs from '../BreadCrumbs'
 import { isPage } from '../../App'
+// import Burger_v2 from './Burger_v2'
 
 export default function Header(){
     // проверка корзины и добавление countInCart useEffect(()=>{ fetch(cart)},[state.cart])

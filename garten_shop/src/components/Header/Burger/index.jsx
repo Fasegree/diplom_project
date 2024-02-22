@@ -5,9 +5,8 @@ import { isPage } from '../../../CONSTANTS';
 
 const BurgerMenu = () => {
   const [isOpen, setIsOpen] = useState(false);
-
-  const toggleMenu = () => {
-    setIsOpen(!isOpen);
+  const toggleMenu = (e) => {
+    !e.target.className.includes('menu') &&  setIsOpen(!isOpen); 
   };
 
   const closeMenu = () => {
@@ -15,14 +14,16 @@ const BurgerMenu = () => {
   };
 
   return (
-    <div className={s.burgermenu}>
+    <div className={isOpen ? s.burgermenuOpen : s.burgermenu}>
       <div className={`${s.burgericon} ${isOpen ? `${s.open}` : ''}`} onClick={toggleMenu}>
-        <div className={s.bar}></div>
-        <div className={s.bar}></div>
-        <div className={s.bar}></div>
+        <div className={s.barLine}></div>
+        <div className={s.barLine}></div>
+        <div className={s.barLine}></div>
       </div>
       {isOpen && (
-        <div className={s.wrapper}>
+        
+        <div onClick={toggleMenu} className={s.wrapper}>
+          
           <div className={s.menu}>
             <ul className={s.nav}>
               <li onClick={closeMenu}><Link to={'/'}>Main Page</Link></li>

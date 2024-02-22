@@ -1,5 +1,4 @@
 import React from 'react'
-import { useForm } from 'react-hook-form'
 import s from './FilterPanel.module.css'
 import { isPage } from '../../App';
 import { useDispatch, useSelector } from 'react-redux';
@@ -34,7 +33,7 @@ const handleSort = (e) => {
 
 
   return (
-  <div>
+  <div className='wrapper'>
     <div className={s.filterPanel}>
             {/* <LiveSearch products={products}/> */}
             <form onChange={handleOnChange}>
@@ -43,7 +42,7 @@ const handleSort = (e) => {
                     <input name="title" placeholder="Title" />
                 </div> */}
             <div className={s.price_filter}>
-                <span>Price</span>
+                <p>Price</p>
                 <input name="from" placeholder="from" />
                 <input name="to" placeholder="to" />
             </div>
@@ -61,7 +60,7 @@ const handleSort = (e) => {
             }
 
             <div className={s.sorted_filter}>
-            <span>Sorted</span>
+            <p>Sorted</p>
             <select onChange={handleSort} className={s.select_drop_down} name='filter_by' >
                 <option value="default">by default</option>
                 <option value="newest">newest</option>

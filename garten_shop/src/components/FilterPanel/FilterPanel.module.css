@@ -3,8 +3,12 @@
     display: flex;
     gap: 40px;
     flex-wrap: wrap;
+    margin-bottom: 40px;
   }
-  
+  .price_filter{
+    display: flex;
+    align-items: center;
+  }
   .price_filter input{
     max-width: 112px;
     height: 100%;    
@@ -47,6 +51,10 @@
       left: 0;
       font-size:23px;
       color: var(--green, #393);
+    }
+    .sorted_filter {
+      display: flex;
+      align-items: center;
     }
   .select_drop_down{
    

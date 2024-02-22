@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from "react-redux"
 import { fetchProductsAll, fetchProductsList } from "../../../asyncActions/products"
 import { Link } from "react-router-dom"
 import ProductItem from "../ProductItem"
-import FilterPanel from "../../FilterPanelOld"
 
 export default function ProductDiscount({type}){
 
@@ -12,7 +11,6 @@ export default function ProductDiscount({type}){
     
     useEffect(() => {
         dispatch(fetchProductsAll(type))
-        console.log(123)
     }, [])
 
     return (
@@ -32,6 +30,9 @@ export default function ProductDiscount({type}){
                     )
             })}
             </div>
+            {/* <div >
+                <BreadNavBtn title={'All Sales'} linkTo={'/discount'}/>
+            </div> */}
         </div>
     )
 }

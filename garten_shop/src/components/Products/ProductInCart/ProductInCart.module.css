@@ -15,9 +15,11 @@ gap: 16px;
 
 .img{
     height: 100%;
-    max-width: 200px;
+    width: 200px;
     border-right: 1px solid #ddd;
     background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
 }
 .close{ 
     text-align: center;
@@ -40,9 +42,11 @@ gap: 16px;
 .cardInfo{ 
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     padding-top: 32px;
     padding-right: 32px;
     margin-left: 0;
+    min-height: 160px;
 }
 .title {
     font-weight: 500;
@@ -118,9 +122,22 @@ gap: 16px;
     }
 
     @media (max-width: 1000px) {
+        .cardsWrapper{
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            }
         .controllAll {   
             flex-direction: column;
             }
+            .cardWrapper { 
+                gap: 20px;
+            }
+            .controllAll{
+                display: flex;
+                padding-bottom: 12px;
+            }
+           
     }
     @media (max-width: 768px) {
         .controllAll {   

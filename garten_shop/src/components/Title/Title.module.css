@@ -44,7 +44,11 @@
 }
 
 
+
 @media (max-width:480px) {
+    .title {
+        margin-top: 0;
+    }
     .title button{
         font-weight: 500;
         font-size: 14px;
@@ -52,15 +56,22 @@
         text-align: center;
     }
     .btnLineNav{
-        display: none;
+margin-top: 40px;
     }
     .lineContainer{
-        display: none;
+margin-top: 20px;
     }
 }
 
 
 @media (max-width:360px) {
+    .btnLineNav{
+        margin-top: 24px;
+        display: none;
+    }
+    .lineContainer{
+        display: none;
+    }
     .title{
         margin-top: 0px;
     }

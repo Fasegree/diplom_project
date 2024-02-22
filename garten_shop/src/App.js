@@ -17,7 +17,7 @@ import CategoriesPage from './pages/CategoriesPage';
 import ScrollToTopButton from './ui/Btns/ScrollToUp';
 
 export const ROOT_URL = 'http://localhost:3333'
-// export const ROOT_URL = 'https://project-fe-vxeu.onrender.com'
+// export const ROOT_URL = 'https://back-shopgarten.onrender.com/'
 export const isPage = {
   home: 'home',
   all: 'all',
@@ -25,9 +25,10 @@ export const isPage = {
   category: 'category',
   cart: 'cart',
   productPage: 'productPage',
+  prodOfCategory: 'prodOfCategory'
 }
 function App() {
-  const isAddToCart = useSelector((state) => state.isAdd);
+  // const isAddToCart = useSelector((state) => state.isAdd);
 
 
 
@@ -47,12 +48,12 @@ function App() {
       
         <Route path='/category/:id' element={<CategoriesPage type={isPage.category} />}/>
         {/* <Route path='/category/' element={<CategoriesPage type='category' />}/> */}
-        <Route path='/categories/:categoryID' element={<ProductsOfCategoryPage/>}/>
+        <Route path='/categories/:categoryID' element={<ProductsOfCategoryPage type={isPage.prodOfCategory} />}/>
         <Route path='/categories/:categoryID/:product_id' element={<ProductPage/>}/>
         <Route path='/cart' element={<CartPage/>}/>
         <Route path='*' element={<NotFoundPage/>}/>
       </Routes>
-      {/* <Footer/> */}
+      <Footer/>
     </div>
   );
 }

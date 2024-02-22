@@ -1,18 +1,17 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import s from './ProductInCart.module.css'
 import { ROOT_URL, isPage } from '../../../App'
 import { useDispatch } from 'react-redux';
-import { Link, useParams } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import {  removeFromCartPositionAction } from '../../../store/cartReducer';
 import Control from '../../../ui/Btns/Control';
-import {CloseBtn} from '../../../ui/Btns/CloseBtn'
 
 
 
 export default function ProductInCart({ productsCart }) {
 
   const dispatch = useDispatch()
-  const { id } = useParams();
+  // const { id } = useParams();
 
 
   return (

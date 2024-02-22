@@ -141,3 +141,6 @@ rest:
 cart => btnOrder(logic form)
 LS, Adaptive
 useLocation() opredelenie navigacii path navMenu active Menu green 
+
+20.02/24
+logic page: products of category.

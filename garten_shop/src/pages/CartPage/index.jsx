@@ -12,11 +12,11 @@ import { btnTitles } from "../../CONSTANTS"
 
 export default function CartPage() {
     const productsCart = useSelector(store => store.cart)
-    const {isShow} = useSelector(store => store.isAdd)
-    const dispatch = useDispatch()
+    const {isShowModal} = useSelector(store => store.isAdd)
+    // const dispatch = useDispatch()
     useEffect(() => {
       window.scrollTo(0, 0)
-    },[ getTotalPrice()===0, isShow ])
+    },[ getTotalPrice()===0, isShowModal ])
 
     function getTotalPrice() {
      
@@ -33,39 +33,26 @@ export default function CartPage() {
   }
 
   const [isModalVisible, setModalVisible] = useState(false);
-  const item = useSelector((store) => store.basket);
+
 
 
   const handleOrderClick = () => {
  
       setModalVisible(true);
   }
-
-
+  const modalTxt = ['Your order has been successfully placed on the website.', 'A manager will contact you shortly to confirm your order.']
+// console.log(modalTxt);
       return (
           <div className="container">
-
-
-
             {isModalVisible && (
-                <Modal onClose={() => setModalVisible(false)}>
-                <div className={s.modalTxt}>
-                    <h3 className={s.congratulations}>Congratulations!</h3>
-                    <p>Your order has been successfully placed on the website.</p>
-                    <p>A manager will contact you shortly to confirm your order.</p>
-                </div>
-            </Modal>
+                <Modal   onClose={() => setModalVisible(false)} modalTxt={modalTxt}/>
             )}
-
-
-
         <div className="wrapper">
             <Title titleText={'Shopping cart'} btnText={'Back to the store'} btnLink={'/products/all'}/>
             {productsCart.length !==0 ? (
                 <div className={`${s.orderContainer} `}>
-                    
-                 
                     <ProductInCart productsCart={productsCart}/>
+                    <div>
                     <div className={s.orderDetiles}>
                         <h3>Order details</h3>
                         <div>
@@ -77,7 +64,7 @@ export default function CartPage() {
                         </div>
                         <InputCoupon page={isPage.cart}  isModalVisible={isModalVisible} action={handleOrderClick}/>
                     </div>
-                   
+                    </div>             
                    
                 </div>
             ) : (

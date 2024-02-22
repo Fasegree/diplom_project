@@ -4,7 +4,7 @@ import ProductItem from "../ProductItem";
 import { Link, useParams } from "react-router-dom";
 import s from './ProductList.module.css';
 import FilterPanel from "../../FilterPanel";
-import { fetchProductsAll } from "../../../asyncActions/products";
+import { fetchProductsAll, fetchProductsListByCategory } from "../../../asyncActions/products";
 import { isPage } from "../../../App";
 
 
@@ -12,9 +12,12 @@ export default function ProductList({type}) {
     const { category, products } = useSelector((store) => store.products);
     const dispatch = useDispatch();
     const { id } = useParams();
+    const { categoryID } = useParams();
 
     useEffect(() => {
- 
+                if(type === isPage.prodOfCategory){
+                    dispatch(fetchProductsListByCategory(categoryID))
+                } else
                 dispatch(fetchProductsAll(type));
   
         
@@ -24,7 +27,7 @@ export default function ProductList({type}) {
     return (
         <div className='container'>    
             <h2 className={`${s.titleCategory} wrapper`}>{category}</h2>
-            {/* <FilterPanel type={category === 'Discounted items' ? isPage.sale : isPage.all}/> */}
+            <FilterPanel type={category === 'Discounted items' ? isPage.sale : isPage.all}/>
             <div className={s.cardsContainer} >
             <div>
 

@@ -3,16 +3,15 @@
     color: var(--white);
     border:1px solid transparent;
     height: 100%;
-    padding: 16px 32px;
+    padding: 16px 9px;
     font-size: 20px;
     font-weight: 400;
     text-decoration: none;
-    /* border: none; */
     border-radius: 6px;
     cursor: pointer;
     z-index: 5;
     transition: .4s;
-    
+    text-wrap: nowrap;
 }
 
 .orderDefault{
@@ -26,7 +25,6 @@
     font-size: 20px;
     font-weight: 400;
     text-decoration: none;
-    /* border: none; */
     border-radius: 6px;
     cursor: pointer;
     z-index: 5;
@@ -46,7 +44,6 @@
     font-size: 20px;
     font-weight: 400;
     text-decoration: none;
-    /* border: none; */
     border-radius: 6px;
     cursor: pointer;
     z-index: 5;
@@ -61,12 +58,10 @@
     background-color: rgba(51, 153, 51, 1);
     color: var(--white);
     border:1px solid transparent;
-    /* height: 100%; */
     padding: 16px 56px;
     font-size: 20px;
     font-weight: 400;
     text-decoration: none;
-    /* border: none; */
     border-radius: 6px;
     cursor: pointer;
     z-index: 5;
@@ -77,11 +72,10 @@
     color: #282828;
     height: 100%;
     width: 90%;
-    padding: 10px 20px;
+    padding: 16px 32px;
     font-size: 20px;
     font-weight: 400;
     text-decoration: none;
-    
     border-radius: 6px;
     cursor: pointer;
     z-index: 5;

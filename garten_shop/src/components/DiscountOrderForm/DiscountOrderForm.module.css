@@ -92,7 +92,12 @@ background-color: transparent;
 }
 
 
-
+@media (max-width:1000px) {
+    .dicountOrderForm > div {
+        grid-template-columns: 50% 50%;
+        /* gap: 32px; */
+    }
+}
 
 @media (max-width: 480px) {
     .dicountOrderForm > div {
@@ -105,7 +110,7 @@ background-color: transparent;
     .handsImg img {
         position: relative;
         object-position: center;
-
+        height: 100%;
     }
     .handsImg{
         position: block;
@@ -115,6 +120,26 @@ background-color: transparent;
     .img_container{
         position: relative;
     }
+    .form {
+        margin-right: 0;
+        margin-bottom: 0px;
+        width: 90%;
+
+    }
     
+}
+@media (max-width: 360px) {
+    .dicountOrderForm > div {
+        display: flex;
+        flex-direction: column-reverse;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+    }
+    .handsImg img {
+        position: relative;
+        object-position: center;
+        height: 210px;
+    }
 }
 

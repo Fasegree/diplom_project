@@ -1,11 +1,11 @@
-import React, { useRef, useState } from "react";
+import React, { useState } from "react";
 import s from "./BtnCard.module.css";
 import { Link } from "react-router-dom";
 import { isPage } from "../../../App";
 import { btnTitles } from "../../../CONSTANTS";
 
 
-export default function ButtonCard({action, title, btnLink, type}) {
+export default function ButtonCard({action, title, btnLink ='', type}) {
   const [newTitle, setNewTitle] = useState(title);
  
   function changeStyle(e){   
@@ -27,9 +27,13 @@ let style=''
     style = s.homePageBanner;
   } else if (newTitle === btnTitles.productCardAdded) {
     style = s.btnAdded
-  } else if (newTitle === btnTitles.productCardDefault){
+  } else if (title === btnTitles.productCardDefault){
     style = `${s.btn} ${s.width90per}`
-  } else if (newTitle === btnTitles.cartOrderProductsDefault) {
+  } 
+  else  if (title === btnTitles.productCardDefault && type === isPage.productPage){
+    style = `${s.btn} ${s.width100per}`
+  }
+  else if (newTitle === btnTitles.cartOrderProductsDefault) {
     style = s.orderDefault
   }else if (newTitle === btnTitles.cartOrderProductsGetted) {
     style = s.orderGetted

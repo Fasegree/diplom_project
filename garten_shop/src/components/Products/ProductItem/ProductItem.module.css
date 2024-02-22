@@ -57,6 +57,8 @@
 .cardInfo {
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
+    min-height: 160px;
 }
 .cardTitle {
     /* max-width: 200px;

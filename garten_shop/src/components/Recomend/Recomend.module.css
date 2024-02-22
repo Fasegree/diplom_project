@@ -14,3 +14,23 @@
     gap: 40px;
 }
 
+@media (max-width: 1000px) {
+    .content {      
+        padding-bottom: 120px;
+    }
+}
+@media (max-width: 768px) {
+    .content {      
+        padding-bottom: 326px;
+    }
+}
+@media (max-width: 480px) {
+    .content {      
+        padding-bottom: 215px;
+    }
+}
+@media (max-width: 360px) {
+    .content {      
+        padding-bottom: 251px;
+    }
+}

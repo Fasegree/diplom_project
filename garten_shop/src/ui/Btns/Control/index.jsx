@@ -1,9 +1,7 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import s from './Control.module.css'
-import { addManyToCartAction } from '../../../store/cartReducer';
 import ButtonCard from '../BtnCard';
-import { incrControlCountAction } from '../../../store/productsReducer';
 import { useParams } from 'react-router-dom';
 import { addPayload, decr, incr } from './HelpFunctions';
 import { isPage } from '../../../App';
@@ -36,7 +34,7 @@ export default function Control({ product, page }) {
         <p>{isPage.productPage ? product?.count : productsInCart.count}</p>
         <button onClick={() => incr(argumentsForFunctions)}>+</button>
     </div>
-    {page==isPage.productPage && <ButtonCard title={btnTitles.productCardDefault}  action={() => addPayload(argumentsForFunctions)}/>}
+    {page==isPage.productPage && <ButtonCard type={isPage.productPage} title={btnTitles.productCardDefault}  action={() => addPayload(argumentsForFunctions)}/>}
 </div> 
   )
 }

@@ -127,6 +127,12 @@ p {
         gap: 20px;
     }
     /*  Product Card */
+    h1 {
+   
+        font-size: 89px;
+        width: 100vw;
+        line-height: 99px;
+    }
 .discountPercent{
 }
 .subtitle{
@@ -201,17 +207,23 @@ h2{
     font-size: 40px;
     margin-bottom: 24px;
     margin-top: 56px;
-
+    /* padding-right: 16px; */
 }
 h3{
     font-weight: 600;
-    font-size: 28px;
+    font-size: 36px;
     line-height: 110%;
 }
 }
 
 
 @media  (max-width: 360px) {
+
+    h3{
+        font-weight: 600;
+        font-size: 28px;
+        line-height: 110%;
+    }
     .cardsList {
         position: relative;
         display: grid;

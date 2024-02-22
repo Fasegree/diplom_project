@@ -1,4 +1,4 @@
-import {applyMiddleware, combineReducers, configureStore, createStore } from '@reduxjs/toolkit'
+import {combineReducers, configureStore } from '@reduxjs/toolkit'
 
 
 import { productsReducer } from './productsReducer'
@@ -36,14 +36,14 @@ const rootReduser = combineReducers({
 
 })
 
-// export const store = configureStore({
-//     reducer: rootReduser,
-//     // middleware: [thunk],
-// })
+export const store = configureStore({
+    reducer: rootReduser,
+    // middleware: [thunk],
+})
 
-const persistedReducer = persistReducer(persingConfig, rootReduser)
-export const store = createStore(persistedReducer, applyMiddleware(thunk))
+// const persistedReducer = persistReducer(persingConfig, rootReduser)
+
+
 export const persistor = persistStore(store)
-
-
+// export const store = createStore(persistedReducer, applyMiddleware(thunk))
 //Reducer => category, OneProd, Cart, 

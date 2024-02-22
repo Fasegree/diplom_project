@@ -51,7 +51,7 @@
 .modalContent {
     border-radius: 12px;
     background: var(--green);
-    padding: 32px;
+    /* padding: 32px; */
     border-radius: 8px;
     position: relative;
     margin-left: 20px;
@@ -64,32 +64,41 @@
     right: 10px;
     cursor: pointer;
 }
-.congratulations{
-    color: var(--txt-white)
-    /* font-size: 40px;
-    margin-bottom: 24px; */
+/* .congratulations{
+    color: var(--txt-white);
+    margin-bottom: 24px;
 
+} */
+/* .modalTxt {
+    max-width: 548px;
+    padding: 32px;
 }
 .modalTxt p{
     padding-bottom: 20px;
     color: var(--txt-white);
-}
+    
+} */
 
 
 @media (max-width: 1000px) {
-    
+    .orderContainer{
+        gap: 20px;
+    }
 }
 @media (max-width: 768px) {
     .orderContainer{
-        display: grid;
         grid-template-columns: repeat(1, 1fr);
-        gap: 20px;
+       
         
     }
 }
 @media (max-width: 480px) {
-    
+    .modalTxt{
+        padding: 0;
+    }
 }
 @media (max-width: 360px) {
-    
+    .modalTxt {
+        max-width: 280px;
+    }
 }

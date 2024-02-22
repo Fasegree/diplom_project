@@ -8,12 +8,12 @@ export default function Title({titleText, btnText, btnLink}){
             <h2> {titleText} </h2>
            
             <div className={s.btnLineNav}>
-            <Link to={btnLink}>
+            {/* <Link to={btnLink}> */}
 
             {/* <button> {btnText} </button> */}
 
-            <BreadNavBtn title={btnText}/>
-            </Link>
+            <BreadNavBtn linkTo={btnLink} title={btnText}/>
+            {/* </Link> */}
             </div>
             <div className={s.lineContainer}>
                 {/* <div className={s.line}></div> */}

@@ -10,7 +10,7 @@ export default function NotFoundPage(){
         <div className="container">
 
         <div className={s.container}>
-            NotFoundPage
+         
             <div className={s.img404}>
                 <div ><img src={img4} alt="404" /></div>
                 <div ><img src={img0} alt="404" /></div>
