@@ -45,6 +45,11 @@ index.js =>
 npm install --save react-breadcrumbs //error
 
 npm install --save react-breadcrumbs@1.6.x
+
+====================================
+Установка иконок
+
+npm install react-icons --save
 ======================================= 
 ============= Установка бекенд
 =======================================

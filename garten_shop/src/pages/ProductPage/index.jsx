@@ -17,8 +17,8 @@ export default function ProductPage() {
         dispatch(fetchProductById(product_id));
     }, [ ])
 
-    const {id, title, description, price, image, count, discont_price } = product 
-    const productsInCart = useSelector(store => store.cart)
+    // const {id, title, description, price, image, count, discont_price } = product 
+    // const productsInCart = useSelector(store => store.cart)
 
 
 

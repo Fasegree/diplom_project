@@ -28,9 +28,12 @@ export const isPage = {
   prodOfCategory: 'prodOfCategory'
 }
 function App() {
-  // const isAddToCart = useSelector((state) => state.isAdd);
+  const isAddToCart = useSelector((state) => state.isAdd) ?? false;
+  useEffect(() => {
 
+  },[isAddToCart])
 
+console.log(isAddToCart);
 
   
 

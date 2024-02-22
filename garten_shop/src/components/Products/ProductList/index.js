@@ -19,7 +19,7 @@ export default function ProductList({type}) {
                     dispatch(fetchProductsListByCategory(categoryID))
                 } else
                 dispatch(fetchProductsAll(type));
-  
+                
         
     }, [type, id, dispatch]);
 

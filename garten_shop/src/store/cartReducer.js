@@ -1,8 +1,5 @@
 
-const defaultState = JSON.parse(localStorage.getItem('localStorage')) ?? []
-console.log('cart ' +JSON.parse(localStorage.getItem('cart')));
-
-
+const defaultState =  [];
 
 const ADD_TO_CART = 'ADD_TO_CART'
 const REMOVE_FROM_CART = 'REMOVE_FROM_CART'
@@ -18,7 +15,6 @@ export const cartReducer = (state = defaultState, action) => {
    switch(action.type){
   
         case ADD_MANY_TO_CART:
-            console.log(state, action.payload);
           if(checkProduct(state, action.payload?.id) === -1){
             const newProduct = {
                 ...action.payload,
@@ -45,7 +41,7 @@ export const cartReducer = (state = defaultState, action) => {
         case REMOVE_FROM_CART:            
        
             const index1 = state.findIndex(prod => prod.id === action.payload.id)
-            console.log(index1);
+            // console.log(index1);
             if (state[index1].count === 1) {
                 return state.filter(prod => prod.id !== action.payload.id)
             
@@ -61,7 +57,7 @@ export const cartReducer = (state = defaultState, action) => {
             return [...state]
         
         case REMOVE_FROM_CART_POSITION:
-            console.log(action.payload);
+            // console.log(action.payload);
             return state.filter(prod => prod.id !== action.payload.id);
             
         case REMOVE_ALL_FROM_CART:
